@@ -1212,3 +1212,21 @@ Processing by ListingsController#index as HTML
 Completed 200 OK in 40ms (Views: 37.9ms | ActiveRecord: 0.5ms)
 
 
+Started GET "/listings/" for ::1 at 2019-05-05 16:31:56 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:3
+  Rendered listings/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 23ms (Views: 21.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/listings/" for ::1 at 2019-05-05 16:31:57 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:3
+  Rendered listings/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 26ms (Views: 23.9ms | ActiveRecord: 0.4ms)
+
+
