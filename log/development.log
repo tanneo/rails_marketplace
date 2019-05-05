@@ -1170,3 +1170,29 @@ puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
 puma (3.12.1) lib/puma/server.rb:474:in `process_client'
 puma (3.12.1) lib/puma/server.rb:334:in `block in run'
 puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/listings" for ::1 at 2019-05-05 16:21:47 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.7ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:6
+  Rendered listings/index.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 86ms (Views: 75.5ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/listings/new" for ::1 at 2019-05-05 16:21:55 +1000
+Processing by ListingsController#new as HTML
+  Rendering listings/new.html.erb within layouts/application
+  Rendered listings/new.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/teganoar/Desktop/repos/ruby project/app/views/listings/new.html.erb:3: syntax error, unexpected tLABEL, expecting do or '{' or '('
+...ing, url: listings_path method: :post do |f| @output_buffer....
+...                        ^~~~~~~
+/Users/teganoar/Desktop/repos/ruby project/app/views/listings/new.html.erb:25: syntax error, unexpected ensure, expecting end-of-input
+          ensure
+          ^~~~~~):
+  
+app/views/listings/new.html.erb:3: syntax error, unexpected tLABEL, expecting do or '{' or '('
+app/views/listings/new.html.erb:25: syntax error, unexpected ensure, expecting end-of-input
