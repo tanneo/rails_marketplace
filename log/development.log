@@ -1467,3 +1467,151 @@ puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
 puma (3.12.1) lib/puma/server.rb:474:in `process_client'
 puma (3.12.1) lib/puma/server.rb:334:in `block in run'
 puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/listings/" for ::1 at 2019-05-05 16:38:44 +1000
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:3
+  Rendered listings/index.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 322ms (Views: 307.7ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/listings/" for ::1 at 2019-05-05 16:42:11 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:3
+  Rendered listings/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 42ms (Views: 40.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/listings/" for ::1 at 2019-05-05 16:42:13 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:3
+  Rendered listings/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 22ms (Views: 20.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/listings/" for ::1 at 2019-05-05 16:42:15 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:3
+  Rendered listings/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2019-05-05 16:43:28 +1000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/lib/ruby/gems/2.6.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (2.7ms)
+Completed 200 OK in 12ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/listings" for ::1 at 2019-05-05 16:43:31 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.8ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:3
+  Rendered listings/index.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 282ms (Views: 273.8ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/listings" for ::1 at 2019-05-05 16:48:36 +1000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.8ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:3
+  Rendered listings/index.html.erb within layouts/application (12.2ms)
+Started GET "/listings" for ::1 at 2019-05-05 16:48:37 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.9ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:3
+  Rendered listings/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 2259ms (Views: 2246.0ms | ActiveRecord: 4.8ms)
+
+
+Completed 200 OK in 1637ms (Views: 1634.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/listings" for ::1 at 2019-05-05 16:51:49 +1000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.6ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:3
+  Rendered listings/index.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 1474ms (Views: 1460.4ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/listings" for ::1 at 2019-05-05 16:51:50 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.9ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:3
+  Rendered listings/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 38ms (Views: 36.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/listings/index" for ::1 at 2019-05-05 16:52:45 +1000
+Processing by ListingsController#show as HTML
+  Parameters: {"id"=>"index"}
+  Rendering listings/show.html.erb within layouts/application
+  Rendered listings/show.html.erb within layouts/application (17.9ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"listings", :id=>nil}, missing required keys: [:id]):
+    1: <%= link_to 'Edit', edit_listing_path(@listing), class: "btn btn-link" %> |
+    2: <%= link_to 'Back', listings_path, class: "btn btn-link" %>
+  
+app/views/listings/show.html.erb:1:in `_app_views_listings_show_html_erb__2906149174204294090_70192076348620'
+Started GET "/listings" for ::1 at 2019-05-05 16:52:50 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:3
+  Rendered listings/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 52ms (Views: 49.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2019-05-05 16:56:36 +1000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/lib/ruby/gems/2.6.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (2.2ms)
+Completed 200 OK in 11ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/listings" for ::1 at 2019-05-05 16:56:43 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.8ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:3
+  Rendered listings/index.html.erb within layouts/application (18.6ms)
+Completed 200 OK in 296ms (Views: 286.9ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/listings" for ::1 at 2019-05-05 16:58:05 +1000
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.7ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:3
+  Rendered listings/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 1199ms (Views: 1184.8ms | ActiveRecord: 3.9ms)
+
+
