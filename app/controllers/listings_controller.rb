@@ -12,7 +12,8 @@ class ListingsController < ApplicationController
     end
   
     def create
-    #   @listing = Listing.new(listing_params)
+      @listing = Listing.create(listing_params)
+      redirect_to listings_path
     end
   
 #     private
@@ -21,7 +22,7 @@ class ListingsController < ApplicationController
 #       end
   
  
-#       def listing_params
-#         params.require(:listing).permit(:name, :description, :price,)
-#       end
+      def listing_params
+        params.require(:listing).permit(:name, :description, :price,)
+      end
   end
