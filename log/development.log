@@ -2710,3 +2710,23 @@ Processing by ListingsController#index as HTML
 Completed 200 OK in 43ms (Views: 40.9ms | ActiveRecord: 0.4ms)
 
 
+Started GET "/listings/1/edit" for ::1 at 2019-05-06 09:39:34 +1000
+Processing by ListingsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/listings_controller.rb:29
+  Rendering listings/edit.html.erb within layouts/application
+  Rendered listings/edit.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 57ms (Views: 54.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/listings/1/edit" for ::1 at 2019-05-06 09:39:37 +1000
+Processing by ListingsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/listings_controller.rb:29
+  Rendering listings/edit.html.erb within layouts/application
+  Rendered listings/edit.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 43ms (Views: 40.1ms | ActiveRecord: 0.4ms)
+
+
