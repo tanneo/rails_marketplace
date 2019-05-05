@@ -1,18 +1,18 @@
 
+<tbody>
+    <%  @listings.each do |listing| %>
+      <tr>
+        <td><%= listing.name %></td>
+        <td><%= listing.description %></td>
+        <td><%= listing.price %></td>
+        <td><%= link_to 'Show', listing, class: "btn btn-link" %></td>
+        <td><%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-link" %></td>
+        <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<div class = listings>
+<br>
 
-<ul>
-<%= @listings.each do |listing|%>
-<li><%= listing.name %> </li>
-<% end %>
-</ul>
-</div>
-
-<div>
-<h2> Manage Listings </h2>
-    <ul>
-        <li> 
-    </ul>
-</div>
-
+<%= link_to 'New Listing', new_listing_path, class: "btn btn-link" %>
