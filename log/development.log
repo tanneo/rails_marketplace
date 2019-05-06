@@ -3608,3 +3608,27 @@ ActionView::Template::Error (variant delegated to attachment, but attachment is 
 app/models/listing.rb:9:in `medium'
 app/views/listings/index.html.erb:9:in `block in _app_views_listings_index_html_erb__2401717430521661990_70340682502860'
 app/views/listings/index.html.erb:5:in `_app_views_listings_index_html_erb__2401717430521661990_70340682502860'
+Started GET "/listings" for ::1 at 2019-05-06 11:34:02 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (1.1ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:5
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Listing"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:9
+  Rendered listings/index.html.erb within layouts/application (8.0ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 1.9ms)
+
+
+  
+ActionView::Template::Error (variant delegated to attachment, but attachment is nil):
+     6:     <div class="col-md-3">
+     7:     <div class="wrap">
+     8:       <div class="thumbnail">
+     9:           <%= image_tag listing.medium %>
+    10:       </div><!--thumbnail-->
+    11:       <div class="caption">
+    12:           <h3><%= listing.name %></h3>
+  
+app/models/listing.rb:9:in `medium'
+app/views/listings/index.html.erb:9:in `block in _app_views_listings_index_html_erb__2401717430521661990_70340675112640'
+app/views/listings/index.html.erb:5:in `_app_views_listings_index_html_erb__2401717430521661990_70340675112640'
