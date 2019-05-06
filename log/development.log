@@ -3737,3 +3737,382 @@ Processing by ListingsController#new as HTML
 Completed 200 OK in 58ms (Views: 56.7ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/listings/new" for ::1 at 2019-05-06 12:11:53 +1000
+Processing by ListingsController#new as HTML
+  Rendering listings/new.html.erb within layouts/application
+  Rendered listings/_form.html.erb (2.6ms)
+  Rendered listings/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 60ms (Views: 58.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/listings" for ::1 at 2019-05-06 12:12:15 +1000
+Processing by ListingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RhHodUwfqboNaIfCYj4PRQEa7tBOp43U/Qmhg8cbDSB1xUIzWN6iSbE3k17PUV8TG6+BH51WqeNoh9ap4E7t0w==", "listing"=>{"name"=>"test for images", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007ff2edde9d00 @tempfile=#<Tempfile:/var/folders/f2/6p1brk_s3lb78_qgn9wwtvlw0000gn/T/RackMultipart20190506-14363-lgfpyn.png>, @original_filename="Screen Shot 2019-05-02 at 10.49.50 am.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"listing[image]\"; filename=\"Screen Shot 2019-05-02 at 10.49.50 am.png\"\r\nContent-Type: image/png\r\n">, "description"=>"testing again to show images", "price"=>"150"}, "commit"=>"Save Listing"}
+[36m  Disk Storage (13.1ms) [0m[32mUploaded file to key: EYGxUFXwFbGiuQ6jF4uq3nMd (checksum: 8H41FYkzWHrw+RCObqpeuA==)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/listings_controller.rb:27
+  [1m[36mActiveStorage::Blob Create (0.6ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "EYGxUFXwFbGiuQ6jF4uq3nMd"], ["filename", "Screen Shot 2019-05-02 at 10.49.50 am.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["byte_size", 662250], ["checksum", "8H41FYkzWHrw+RCObqpeuA=="], ["created_at", "2019-05-06 02:12:15.859095"]]
+  ↳ app/controllers/listings_controller.rb:27
+  [1m[35m (39.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/listings_controller.rb:27
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/listings_controller.rb:27
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/listings_controller.rb:27
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/listings_controller.rb:30
+  [1m[36mListing Create (0.5ms)[0m  [1m[32mINSERT INTO "listings" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "test for images"], ["description", "testing again to show images"], ["price", "150.0"], ["created_at", "2019-05-06 02:12:15.917790"], ["updated_at", "2019-05-06 02:12:15.917790"]]
+  ↳ app/controllers/listings_controller.rb:30
+  [1m[36mActiveStorage::Attachment Create (0.8ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "image"], ["record_type", "Listing"], ["record_id", 15], ["blob_id", 9], ["created_at", "2019-05-06 02:12:15.919731"]]
+  ↳ app/controllers/listings_controller.rb:30
+  [1m[36mListing Update (0.4ms)[0m  [1m[33mUPDATE "listings" SET "updated_at" = $1 WHERE "listings"."id" = $2[0m  [["updated_at", "2019-05-06 02:12:15.921587"], ["id", 15]]
+  ↳ app/controllers/listings_controller.rb:30
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/listings_controller.rb:30
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: fc5b0198-5a9b-462d-a070-bf0513a9644d) to Async(default) with arguments: #<GlobalID:0x00007ff2eecdadc8 @uri=#<URI::GID gid://marketplace/ActiveStorage::Blob/9>>
+Redirected to http://localhost:3000/listings/15
+Completed 302 Found in 154ms (ActiveRecord: 56.2ms)
+
+
+Started GET "/listings/15" for ::1 at 2019-05-06 12:12:15 +1000
+Processing by ListingsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mActiveStorage::Blob Load (2.0ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [fc5b0198-5a9b-462d-a070-bf0513a9644d] Performing ActiveStorage::AnalyzeJob (Job ID: fc5b0198-5a9b-462d-a070-bf0513a9644d) from Async(default) with arguments: #<GlobalID:0x00007ff2ee0a92c0 @uri=#<URI::GID gid://marketplace/ActiveStorage::Blob/9>>
+  [1m[36mListing Load (0.9ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/listings_controller.rb:67
+[ActiveJob] [ActiveStorage::AnalyzeJob] [fc5b0198-5a9b-462d-a070-bf0513a9644d] [36m  Disk Storage (1.5ms) [0m[34mDownloaded file from key: EYGxUFXwFbGiuQ6jF4uq3nMd[0m
+  Rendering listings/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 15], ["record_type", "Listing"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/listings/show.html.erb:19
+  [1m[36mActiveStorage::Blob Load (0.9ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/listings/show.html.erb:19
+  Rendered listings/show.html.erb within layouts/application (17.9ms)
+[ActiveJob] [ActiveStorage::AnalyzeJob] [fc5b0198-5a9b-462d-a070-bf0513a9644d]   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [fc5b0198-5a9b-462d-a070-bf0513a9644d]   ↳ /usr/local/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [fc5b0198-5a9b-462d-a070-bf0513a9644d]   [1m[36mActiveStorage::Blob Update (2.9ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"width\":942,\"height\":586,\"analyzed\":true}"], ["id", 9]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [fc5b0198-5a9b-462d-a070-bf0513a9644d]   ↳ /usr/local/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [fc5b0198-5a9b-462d-a070-bf0513a9644d]   [1m[35m (59.1ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [fc5b0198-5a9b-462d-a070-bf0513a9644d]   ↳ /usr/local/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [fc5b0198-5a9b-462d-a070-bf0513a9644d] Performed ActiveStorage::AnalyzeJob (Job ID: fc5b0198-5a9b-462d-a070-bf0513a9644d) from Async(default) in 98.66ms
+Completed 200 OK in 125ms (Views: 115.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c1bdb13eb84266174af1f1a7cb881bac084cdfd9/Screen%20Shot%202019-05-02%20at%2010.49.50%20am.png" for ::1 at 2019-05-06 12:12:16 +1000
+Processing by ActiveStorage::BlobsController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c1bdb13eb84266174af1f1a7cb881bac084cdfd9", "filename"=>"Screen Shot 2019-05-02 at 10.49.50 am"}
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (1.5ms) [0m[34mGenerated URL for file at key: EYGxUFXwFbGiuQ6jF4uq3nMd (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRSVmxIZUZWR1dIZEdZa2RwZFZFMmFrWTBkWEV6Ymsxa0Jqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSUJnbWx1YkdsdVpUc2dabWxzWlc1aGJXVTlJbE5qY21WbGJpQlRhRzkwSURJd01Ua3RNRFV0TURJZ1lYUWdNVEF1TkRrdU5UQWdZVzB1Y0c1bklqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZFRZM0psWlc0bE1qQlRhRzkwSlRJd01qQXhPUzB3TlMwd01pVXlNR0YwSlRJd01UQXVORGt1TlRBbE1qQmhiUzV3Ym1jR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnNXBiV0ZuWlM5d2JtY0dPd1pVIiwiZXhwIjoiMjAxOS0wNS0wNlQwMjoxNzoxNi4xNjlaIiwicHVyIjoiYmxvYl9rZXkifX0=--7899a4c8f265c707bed91a8f429bef4aaf8d6bad/Screen%20Shot%202019-05-02%20at%2010.49.50%20am.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Screen+Shot+2019-05-02+at+10.49.50+am.png%22%3B+filename%2A%3DUTF-8%27%27Screen%2520Shot%25202019-05-02%2520at%252010.49.50%2520am.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRSVmxIZUZWR1dIZEdZa2RwZFZFMmFrWTBkWEV6Ymsxa0Jqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSUJnbWx1YkdsdVpUc2dabWxzWlc1aGJXVTlJbE5qY21WbGJpQlRhRzkwSURJd01Ua3RNRFV0TURJZ1lYUWdNVEF1TkRrdU5UQWdZVzB1Y0c1bklqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZFRZM0psWlc0bE1qQlRhRzkwSlRJd01qQXhPUzB3TlMwd01pVXlNR0YwSlRJd01UQXVORGt1TlRBbE1qQmhiUzV3Ym1jR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnNXBiV0ZuWlM5d2JtY0dPd1pVIiwiZXhwIjoiMjAxOS0wNS0wNlQwMjoxNzoxNi4xNjlaIiwicHVyIjoiYmxvYl9rZXkifX0=--7899a4c8f265c707bed91a8f429bef4aaf8d6bad/Screen%20Shot%202019-05-02%20at%2010.49.50%20am.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Screen+Shot+2019-05-02+at+10.49.50+am.png%22%3B+filename%2A%3DUTF-8%27%27Screen%2520Shot%25202019-05-02%2520at%252010.49.50%2520am.png
+Completed 302 Found in 6ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRSVmxIZUZWR1dIZEdZa2RwZFZFMmFrWTBkWEV6Ymsxa0Jqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSUJnbWx1YkdsdVpUc2dabWxzWlc1aGJXVTlJbE5qY21WbGJpQlRhRzkwSURJd01Ua3RNRFV0TURJZ1lYUWdNVEF1TkRrdU5UQWdZVzB1Y0c1bklqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZFRZM0psWlc0bE1qQlRhRzkwSlRJd01qQXhPUzB3TlMwd01pVXlNR0YwSlRJd01UQXVORGt1TlRBbE1qQmhiUzV3Ym1jR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnNXBiV0ZuWlM5d2JtY0dPd1pVIiwiZXhwIjoiMjAxOS0wNS0wNlQwMjoxNzoxNi4xNjlaIiwicHVyIjoiYmxvYl9rZXkifX0=--7899a4c8f265c707bed91a8f429bef4aaf8d6bad/Screen%20Shot%202019-05-02%20at%2010.49.50%20am.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Screen+Shot+2019-05-02+at+10.49.50+am.png%22%3B+filename%2A%3DUTF-8%27%27Screen%2520Shot%25202019-05-02%2520at%252010.49.50%2520am.png" for ::1 at 2019-05-06 12:12:16 +1000
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"content_type"=>"image/png", "disposition"=>"inline; filename=\"Screen Shot 2019-05-02 at 10.49.50 am.png\"; filename*=UTF-8''Screen%20Shot%202019-05-02%20at%2010.49.50%20am.png", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWRSVmxIZUZWR1dIZEdZa2RwZFZFMmFrWTBkWEV6Ymsxa0Jqb0dSVlE2RUdScGMzQnZjMmwwYVc5dVNTSUJnbWx1YkdsdVpUc2dabWxzWlc1aGJXVTlJbE5qY21WbGJpQlRhRzkwSURJd01Ua3RNRFV0TURJZ1lYUWdNVEF1TkRrdU5UQWdZVzB1Y0c1bklqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZFRZM0psWlc0bE1qQlRhRzkwSlRJd01qQXhPUzB3TlMwd01pVXlNR0YwSlRJd01UQXVORGt1TlRBbE1qQmhiUzV3Ym1jR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnNXBiV0ZuWlM5d2JtY0dPd1pVIiwiZXhwIjoiMjAxOS0wNS0wNlQwMjoxNzoxNi4xNjlaIiwicHVyIjoiYmxvYl9rZXkifX0=--7899a4c8f265c707bed91a8f429bef4aaf8d6bad", "filename"=>"Screen Shot 2019-05-02 at 10.49.50 am"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/listings" for ::1 at 2019-05-06 12:15:59 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:5
+  Rendered listings/index.html.erb within layouts/application (5.1ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `image' for nil:NilClass):
+     6:     <div class="col-md-3">
+     7:     <div class="wrap">
+     8:         <div class="thumbnail">
+     9:           <%= image_tag @listing.image, width: 500 %>
+    10:       </div><!--thumbnail-->
+    11:       <div class="caption">
+    12:           <h3><%= listing.name %></h3>
+  
+app/views/listings/index.html.erb:9:in `block in _app_views_listings_index_html_erb__2401717430521661990_70340735604780'
+app/views/listings/index.html.erb:5:in `_app_views_listings_index_html_erb__2401717430521661990_70340735604780'
+Started GET "/listings" for ::1 at 2019-05-06 12:18:23 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:5
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Listing"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:9
+  Rendered listings/index.html.erb within layouts/application (19.8ms)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 7.3ms)
+
+
+  
+ActionView::Template::Error (variant delegated to attachment, but attachment is nil):
+     6:     <div class="col-md-3">
+     7:     <div class="wrap">
+     8:         <div class="thumbnail">
+     9:           <%= image_tag listing.medium %>
+    10:       </div><!--thumbnail-->
+    11:       <div class="caption">
+    12:           <h3><%= listing.name %></h3>
+  
+app/models/listing.rb:9:in `medium'
+app/views/listings/index.html.erb:9:in `block in _app_views_listings_index_html_erb__2401717430521661990_70340740846460'
+app/views/listings/index.html.erb:5:in `_app_views_listings_index_html_erb__2401717430521661990_70340740846460'
+Started GET "/listings" for ::1 at 2019-05-06 12:18:48 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:5
+  Rendered listings/index.html.erb within layouts/application (11.1ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 3.8ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 1, expected 0)):
+     6:     <div class="col-md-3">
+     7:     <div class="wrap">
+     8:         <div class="thumbnail">
+     9:           <%= image_tag listing.medium %>
+    10:       </div><!--thumbnail-->
+    11:       <div class="caption">
+    12:           <h3><%= listing.name %></h3>
+  
+app/models/listing.rb:9:in `medium'
+app/views/listings/index.html.erb:9:in `block in _app_views_listings_index_html_erb__2401717430521661990_70340735553600'
+app/views/listings/index.html.erb:5:in `_app_views_listings_index_html_erb__2401717430521661990_70340735553600'
+Started GET "/listings" for ::1 at 2019-05-06 12:19:18 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:5
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Listing"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/listings/index.html.erb:9
+  Rendered listings/index.html.erb within layouts/application (18.3ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 5.2ms)
+
+
+  
+ActionView::Template::Error (Can't resolve image into URL: to_model delegated to attachment, but attachment is nil):
+     6:     <div class="col-md-3">
+     7:     <div class="wrap">
+     8:         <div class="thumbnail">
+     9:           <%= image_tag listing.medium %>
+    10:       </div><!--thumbnail-->
+    11:       <div class="caption">
+    12:           <h3><%= listing.name %></h3>
+  
+app/views/listings/index.html.erb:9:in `block in _app_views_listings_index_html_erb__2401717430521661990_70340723906280'
+app/views/listings/index.html.erb:5:in `_app_views_listings_index_html_erb__2401717430521661990_70340723906280'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3144585560278134210)[0m
+  ↳ /usr/local/Cellar/ruby/2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/Cellar/ruby/2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/Cellar/ruby/2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /usr/local/Cellar/ruby/2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /usr/local/Cellar/ruby/2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3144585560278134210)[0m
+  ↳ /usr/local/Cellar/ruby/2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/Cellar/ruby/2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Started GET "/listings" for ::1 at 2019-05-06 12:34:18 +1000
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.7ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:5
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Listing"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:9
+  Rendered listings/index.html.erb within layouts/application (40.2ms)
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 6.8ms)
+
+
+  
+ActionView::Template::Error (variant delegated to attachment, but attachment is nil):
+     6:     <div class="col-md-3">
+     7:     <div class="wrap">
+     8:         <div class="thumbnail">
+     9:           <%= image_tag listing.medium %>
+    10:       </div><!--thumbnail-->
+    11:       <div class="caption">
+    12:           <h3><%= listing.name %></h3>
+  
+app/models/listing.rb:9:in `medium'
+app/views/listings/index.html.erb:9:in `block in _app_views_listings_index_html_erb___2414531653970082102_70124809377960'
+app/views/listings/index.html.erb:5:in `_app_views_listings_index_html_erb___2414531653970082102_70124809377960'
+Started GET "/listings" for ::1 at 2019-05-06 12:34:20 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.6ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:5
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Listing"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:9
+  Rendered listings/index.html.erb within layouts/application (6.7ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (variant delegated to attachment, but attachment is nil):
+     6:     <div class="col-md-3">
+     7:     <div class="wrap">
+     8:         <div class="thumbnail">
+     9:           <%= image_tag listing.medium %>
+    10:       </div><!--thumbnail-->
+    11:       <div class="caption">
+    12:           <h3><%= listing.name %></h3>
+  
+app/models/listing.rb:9:in `medium'
+app/views/listings/index.html.erb:9:in `block in _app_views_listings_index_html_erb___2414531653970082102_70124818174300'
+app/views/listings/index.html.erb:5:in `_app_views_listings_index_html_erb___2414531653970082102_70124818174300'
+Started GET "/listings" for ::1 at 2019-05-07 08:13:35 +1000
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.7ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:5
+  Rendered listings/index.html.erb within layouts/application (67.5ms)
+Completed 500 Internal Server Error in 92ms (ActiveRecord: 49.0ms)
+
+
+  
+ActionView::Template::Error (Nil location provided. Can't build URI.):
+     6:     <div class="col-md-3">
+     7:     <div class="wrap">
+     8:         <div class="thumbnail">
+     9:           <%= image_tag listing.medium %>
+    10:       </div><!--thumbnail-->
+    11:       <div class="caption">
+    12:           <h3><%= listing.name %></h3>
+  
+app/views/listings/index.html.erb:9:in `block in _app_views_listings_index_html_erb___1662411990201076359_70358318463360'
+app/views/listings/index.html.erb:5:in `_app_views_listings_index_html_erb___1662411990201076359_70358318463360'
+Started GET "/listings" for ::1 at 2019-05-07 08:21:10 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.7ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:5
+  Rendered listings/index.html.erb within layouts/application (14.7ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 6.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `image' for nil:NilClass):
+     6:     <div class="col-md-3">
+     7:     <div class="wrap">
+     8:         <div class="thumbnail">
+     9:           <%= image_tag @listing.image, width: 200 %>
+    10:       </div><!--thumbnail-->
+    11:       <div class="caption">
+    12:           <h3><%= listing.name %></h3>
+  
+app/views/listings/index.html.erb:9:in `block in _app_views_listings_index_html_erb___1662411990201076359_70358322551640'
+app/views/listings/index.html.erb:5:in `_app_views_listings_index_html_erb___1662411990201076359_70358322551640'
+Started GET "/listings" for ::1 at 2019-05-07 08:25:09 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:5
+  Rendered listings/index.html.erb within layouts/application (240.4ms)
+Completed 500 Internal Server Error in 243ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `form' for #<#<Class:0x00007ffb25a52850>:0x00007ffb25a3ae30>
+Did you mean?  for
+               fork):
+     6:     <div class="col-md-3">
+     7:     <div class="wrap">
+     8:         <div class="thumbnail">
+     9:           <%= form.file_field :image %>
+    10:       </div><!--thumbnail-->
+    11:       <div class="caption">
+    12:           <h3><%= listing.name %></h3>
+  
+app/views/listings/index.html.erb:9:in `block in _app_views_listings_index_html_erb___1662411990201076359_70358322502460'
+app/views/listings/index.html.erb:5:in `_app_views_listings_index_html_erb___1662411990201076359_70358322502460'
+Started GET "/listings" for ::1 at 2019-05-07 08:28:11 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:5
+  Rendered listings/index.html.erb within layouts/application (254.2ms)
+Completed 500 Internal Server Error in 258ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `form' for #<#<Class:0x00007ffb25a52850>:0x00007ffb2b1c94a8>
+Did you mean?  for
+               fork):
+     6:     <div class="col-md-3">
+     7:     <div class="wrap">
+     8:         <div class="thumbnail">
+     9:           <%= form.file_field :image %>
+    10:       </div><!--thumbnail-->
+    11:       <div class="caption">
+    12:           <h3><%= listing.name %></h3>
+  
+app/views/listings/index.html.erb:9:in `block in _app_views_listings_index_html_erb___1662411990201076359_70358368408400'
+app/views/listings/index.html.erb:5:in `_app_views_listings_index_html_erb___1662411990201076359_70358368408400'
+Started GET "/listings" for ::1 at 2019-05-07 08:28:12 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:5
+  Rendered listings/index.html.erb within layouts/application (263.6ms)
+Completed 500 Internal Server Error in 267ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `form' for #<#<Class:0x00007ffb25a52850>:0x00007ffb255438a0>
+Did you mean?  for
+               fork):
+     6:     <div class="col-md-3">
+     7:     <div class="wrap">
+     8:         <div class="thumbnail">
+     9:           <%= form.file_field :image %>
+    10:       </div><!--thumbnail-->
+    11:       <div class="caption">
+    12:           <h3><%= listing.name %></h3>
+  
+app/views/listings/index.html.erb:9:in `block in _app_views_listings_index_html_erb___1662411990201076359_70358319860780'
+app/views/listings/index.html.erb:5:in `_app_views_listings_index_html_erb___1662411990201076359_70358319860780'
+Started GET "/" for ::1 at 2019-05-07 08:28:47 +1000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.6ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:5
+  Rendered listings/index.html.erb within layouts/application (287.6ms)
+Completed 500 Internal Server Error in 302ms (ActiveRecord: 3.8ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `form' for #<#<Class:0x00007f8028ad4dc8>:0x00007f8028ae4c78>
+Did you mean?  for
+               fork):
+     6:     <div class="col-md-3">
+     7:     <div class="wrap">
+     8:         <div class="thumbnail">
+     9:           <%= form.file_field :image %>
+    10:       </div><!--thumbnail-->
+    11:       <div class="caption">
+    12:           <h3><%= listing.name %></h3>
+  
+app/views/listings/index.html.erb:9:in `block in _app_views_listings_index_html_erb___564303053787401854_70094207498100'
+app/views/listings/index.html.erb:5:in `_app_views_listings_index_html_erb___564303053787401854_70094207498100'
+Started GET "/" for ::1 at 2019-05-07 08:29:09 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:5
+  Rendered listings/index.html.erb within layouts/application (37.0ms)
+Completed 200 OK in 511ms (Views: 509.0ms | ActiveRecord: 0.4ms)
+
+
