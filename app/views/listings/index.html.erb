@@ -1,18 +1,21 @@
+<%= link_to 'New Listing', new_listing_path, class: "btn btn-dark" %>
+<br><br>
 
-<tbody class = "container">
-    <%  @listings.each do |listing| %>
-      <tr>
-        <td><%= listing.name %></td>
-        <td><%= listing.description %></td>
-        <td><%= listing.price %></td>
-        <td><%= link_to 'Show', listing, class: "btn btn-link" %></td>
-        <td><%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-link" %></td>
-        <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %></td>
-      </tr> <br>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Listing', new_listing_path, class: "btn btn-link" %>
+  <div class="row">
+      <% @listings.each do |listing| %>
+    <div class="col-md-3">
+    <div class="wrap">
+      <div class="thumbnail">
+          <%= image_tag listing.medium %>
+      </div><!--thumbnail-->
+      <div class="caption">
+          <h3><%= listing.name %></h3>
+          <p><%= number_to_currency(listing.price) %></p>
+        <%= link_to 'Show', listing, class: "btn btn-primary" %>
+        <%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-warning" %>
+        <%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+      </div><!---caption-->
+      </div>
+    </div><!--col-md-3-->
+  <% end %>
+  </div><!--row-->
