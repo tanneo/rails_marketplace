@@ -3632,3 +3632,100 @@ ActionView::Template::Error (variant delegated to attachment, but attachment is 
 app/models/listing.rb:9:in `medium'
 app/views/listings/index.html.erb:9:in `block in _app_views_listings_index_html_erb__2401717430521661990_70340675112640'
 app/views/listings/index.html.erb:5:in `_app_views_listings_index_html_erb__2401717430521661990_70340675112640'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3144585560278134210)[0m
+  ↳ /usr/local/Cellar/ruby/2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/Cellar/ruby/2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/Cellar/ruby/2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /usr/local/Cellar/ruby/2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /usr/local/Cellar/ruby/2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3144585560278134210)[0m
+  ↳ /usr/local/Cellar/ruby/2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/Cellar/ruby/2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+Started GET "/listings" for ::1 at 2019-05-06 11:41:00 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.9ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:5
+  Rendered listings/index.html.erb within layouts/application (20.4ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 8.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `medium' for #<Listing:0x00007ff2f580ae90>):
+     6:     <div class="col-md-3">
+     7:     <div class="wrap">
+     8:       <div class="thumbnail">
+     9:           <%= image_tag listing.medium %>
+    10:       </div><!--thumbnail-->
+    11:       <div class="caption">
+    12:           <h3><%= listing.name %></h3>
+  
+app/views/listings/index.html.erb:9:in `block in _app_views_listings_index_html_erb__2401717430521661990_70340735912140'
+app/views/listings/index.html.erb:5:in `_app_views_listings_index_html_erb__2401717430521661990_70340735912140'
+Started GET "/listings" for ::1 at 2019-05-06 11:41:18 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.7ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:5
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Listing"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:9
+  Rendered listings/index.html.erb within layouts/application (19.8ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 6.4ms)
+
+
+  
+ActionView::Template::Error (variant delegated to attachment, but attachment is nil):
+     6:     <div class="col-md-3">
+     7:     <div class="wrap">
+     8:       <div class="thumbnail">
+     9:           <%= image_tag listing.medium %>
+    10:       </div><!--thumbnail-->
+    11:       <div class="caption">
+    12:           <h3><%= listing.name %></h3>
+  
+app/models/listing.rb:9:in `medium'
+app/views/listings/index.html.erb:9:in `block in _app_views_listings_index_html_erb__2401717430521661990_70340695615020'
+app/views/listings/index.html.erb:5:in `_app_views_listings_index_html_erb__2401717430521661990_70340695615020'
+Started GET "/listings" for ::1 at 2019-05-06 11:42:01 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:5
+  Rendered listings/index.html.erb within layouts/application (11.8ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 3.6ms)
+
+
+  
+ActionView::Template::Error (Nil location provided. Can't build URI.):
+     6:     <div class="col-md-3">
+     7:     <div class="wrap">
+     8:       <div class="thumbnail">
+     9:           <%= image_tag listing.medium %>
+    10:       </div><!--thumbnail-->
+    11:       <div class="caption">
+    12:           <h3><%= listing.name %></h3>
+  
+app/views/listings/index.html.erb:9:in `block in _app_views_listings_index_html_erb__2401717430521661990_70340723277620'
+app/views/listings/index.html.erb:5:in `_app_views_listings_index_html_erb__2401717430521661990_70340723277620'
+Started GET "/listings" for ::1 at 2019-05-06 11:44:17 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:5
+  Rendered listings/index.html.erb within layouts/application (28.1ms)
+Completed 200 OK in 164ms (Views: 161.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/listings/new" for ::1 at 2019-05-06 11:45:03 +1000
+Processing by ListingsController#new as HTML
+  Rendering listings/new.html.erb within layouts/application
+  Rendered listings/_form.html.erb (2.3ms)
+  Rendered listings/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 47ms (Views: 45.2ms | ActiveRecord: 0.0ms)
+
+
