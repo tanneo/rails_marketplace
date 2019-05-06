@@ -3258,3 +3258,353 @@ ActionView::Template::Error (undefined method `medium' for #<Listing:0x00007ff2f
   
 app/views/listings/index.html.erb:9:in `block in _app_views_listings_index_html_erb__2401717430521661990_70340735795800'
 app/views/listings/index.html.erb:5:in `_app_views_listings_index_html_erb__2401717430521661990_70340735795800'
+Started GET "/listings" for ::1 at 2019-05-06 11:11:40 +1000
+Processing by ListingsController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/teganoar/Desktop/repos/ruby project/app/models/listing.rb:22: syntax error, unexpected end-of-input, expecting end):
+  
+app/models/listing.rb:22: syntax error, unexpected end-of-input, expecting end
+app/controllers/listings_controller.rb:7:in `index'
+Started GET "/listings" for ::1 at 2019-05-06 11:11:54 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.9ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:5
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Listing"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:9
+  Rendered listings/index.html.erb within layouts/application (52.4ms)
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 10.2ms)
+
+
+  
+ActionView::Template::Error (variant delegated to attachment, but attachment is nil):
+     6:     <div class="col-md-3">
+     7:     <div class="wrap">
+     8:       <div class="thumbnail">
+     9:           <%= image_tag listing.medium %>
+    10:       </div><!--thumbnail-->
+    11:       <div class="caption">
+    12:           <h3><%= listing.name %></h3>
+  
+app/models/listing.rb:9:in `medium'
+app/views/listings/index.html.erb:9:in `block in _app_views_listings_index_html_erb__2401717430521661990_70340682953340'
+app/views/listings/index.html.erb:5:in `_app_views_listings_index_html_erb__2401717430521661990_70340682953340'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/Cellar/ruby/2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mListing Create (0.4ms)[0m  [1m[32mINSERT INTO "listings" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Molly"], ["description", "Molly is a great dog. "], ["price", "1000.0"], ["created_at", "2019-05-06 01:20:04.458509"], ["updated_at", "2019-05-06 01:20:04.458509"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (40.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+[36m  Disk Storage (7.3ms) [0m[32mUploaded file to key: zQBQPu4x5dihYutPtdfBqfav (checksum: Fh9QzC32i3ZmbSNeP2Crag==)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:29
+  [1m[36mActiveStorage::Blob Create (44.7ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "zQBQPu4x5dihYutPtdfBqfav"], ["filename", "dog1.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["byte_size", 1648527], ["checksum", "Fh9QzC32i3ZmbSNeP2Crag=="], ["created_at", "2019-05-06 01:20:04.622922"]]
+  ↳ db/seeds.rb:29
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:29
+  [1m[36mActiveStorage::Attachment Create (42.7ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "image"], ["record_type", "Listing"], ["record_id", 7], ["blob_id", 1], ["created_at", "2019-05-06 01:20:04.680386"]]
+  ↳ db/seeds.rb:29
+  [1m[36mListing Update (0.4ms)[0m  [1m[33mUPDATE "listings" SET "updated_at" = $1 WHERE "listings"."id" = $2[0m  [["updated_at", "2019-05-06 01:20:04.724211"], ["id", 7]]
+  ↳ db/seeds.rb:29
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:29
+[ActiveJob]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob]   ↳ db/seeds.rb:29
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b58b8eea-dabd-4f7f-93b8-84d2a851629e] Performing ActiveStorage::AnalyzeJob (Job ID: b58b8eea-dabd-4f7f-93b8-84d2a851629e) from Inline(default) with arguments: #<GlobalID:0x00007fbb808a0ff0 @uri=#<URI::GID gid://marketplace/ActiveStorage::Blob/1>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b58b8eea-dabd-4f7f-93b8-84d2a851629e] [36m  Disk Storage (1.0ms) [0m[34mDownloaded file from key: zQBQPu4x5dihYutPtdfBqfav[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b58b8eea-dabd-4f7f-93b8-84d2a851629e]   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b58b8eea-dabd-4f7f-93b8-84d2a851629e]   ↳ db/seeds.rb:29
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b58b8eea-dabd-4f7f-93b8-84d2a851629e]   [1m[36mActiveStorage::Blob Update (0.3ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"width\":1638,\"height\":1108,\"analyzed\":true}"], ["id", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b58b8eea-dabd-4f7f-93b8-84d2a851629e]   ↳ db/seeds.rb:29
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b58b8eea-dabd-4f7f-93b8-84d2a851629e]   [1m[35m (40.6ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b58b8eea-dabd-4f7f-93b8-84d2a851629e]   ↳ db/seeds.rb:29
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b58b8eea-dabd-4f7f-93b8-84d2a851629e] Performed ActiveStorage::AnalyzeJob (Job ID: b58b8eea-dabd-4f7f-93b8-84d2a851629e) from Inline(default) in 92.86ms
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: b58b8eea-dabd-4f7f-93b8-84d2a851629e) to Inline(default) with arguments: #<GlobalID:0x00007fbb80951df0 @uri=#<URI::GID gid://marketplace/ActiveStorage::Blob/1>>
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:31
+  [1m[36mListing Create (0.3ms)[0m  [1m[32mINSERT INTO "listings" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bonnie and Clyde"], ["description", "Bonnie and Clyde are both great dogs. "], ["price", "5000.0"], ["created_at", "2019-05-06 01:20:04.869699"], ["updated_at", "2019-05-06 01:20:04.869699"]]
+  ↳ db/seeds.rb:31
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:31
+[36m  Disk Storage (6.0ms) [0m[32mUploaded file to key: 27moPZk2PcxeQ98nJ4Xv69fb (checksum: 6ew9ZcS8+fjUd0HQ9GHy1A==)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:36
+  [1m[36mActiveStorage::Blob Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "27moPZk2PcxeQ98nJ4Xv69fb"], ["filename", "dog2.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["byte_size", 1457474], ["checksum", "6ew9ZcS8+fjUd0HQ9GHy1A=="], ["created_at", "2019-05-06 01:20:04.883210"]]
+  ↳ db/seeds.rb:36
+  [1m[35m (40.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:36
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:36
+  [1m[36mActiveStorage::Attachment Create (0.5ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "image"], ["record_type", "Listing"], ["record_id", 8], ["blob_id", 2], ["created_at", "2019-05-06 01:20:04.927331"]]
+  ↳ db/seeds.rb:36
+  [1m[36mListing Update (0.3ms)[0m  [1m[33mUPDATE "listings" SET "updated_at" = $1 WHERE "listings"."id" = $2[0m  [["updated_at", "2019-05-06 01:20:04.928798"], ["id", 8]]
+  ↳ db/seeds.rb:36
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:36
+[ActiveJob]   [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[ActiveJob]   ↳ db/seeds.rb:36
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2e42fae3-fccb-4390-b6d4-d4617a947ea4] Performing ActiveStorage::AnalyzeJob (Job ID: 2e42fae3-fccb-4390-b6d4-d4617a947ea4) from Inline(default) with arguments: #<GlobalID:0x00007fbb80a2b640 @uri=#<URI::GID gid://marketplace/ActiveStorage::Blob/2>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2e42fae3-fccb-4390-b6d4-d4617a947ea4] [36m  Disk Storage (1.0ms) [0m[34mDownloaded file from key: 27moPZk2PcxeQ98nJ4Xv69fb[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2e42fae3-fccb-4390-b6d4-d4617a947ea4]   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2e42fae3-fccb-4390-b6d4-d4617a947ea4]   ↳ db/seeds.rb:36
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2e42fae3-fccb-4390-b6d4-d4617a947ea4]   [1m[36mActiveStorage::Blob Update (0.3ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"width\":1658,\"height\":1110,\"analyzed\":true}"], ["id", 2]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2e42fae3-fccb-4390-b6d4-d4617a947ea4]   ↳ db/seeds.rb:36
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2e42fae3-fccb-4390-b6d4-d4617a947ea4]   [1m[35m (16.2ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2e42fae3-fccb-4390-b6d4-d4617a947ea4]   ↳ db/seeds.rb:36
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2e42fae3-fccb-4390-b6d4-d4617a947ea4] Performed ActiveStorage::AnalyzeJob (Job ID: 2e42fae3-fccb-4390-b6d4-d4617a947ea4) from Inline(default) in 33.94ms
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 2e42fae3-fccb-4390-b6d4-d4617a947ea4) to Inline(default) with arguments: #<GlobalID:0x00007fbb80a71d48 @uri=#<URI::GID gid://marketplace/ActiveStorage::Blob/2>>
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:38
+  [1m[36mListing Create (0.3ms)[0m  [1m[32mINSERT INTO "listings" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Myffy"], ["description", "Myffy is a great dog. "], ["price", "2500.0"], ["created_at", "2019-05-06 01:20:04.970707"], ["updated_at", "2019-05-06 01:20:04.970707"]]
+  ↳ db/seeds.rb:38
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:38
+[36m  Disk Storage (4.2ms) [0m[32mUploaded file to key: maAgGdpphyiLQU6KAPTofN61 (checksum: fj6gdvcP+WcnzcwaJmOw9g==)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:43
+  [1m[36mActiveStorage::Blob Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "maAgGdpphyiLQU6KAPTofN61"], ["filename", "dog3.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["byte_size", 918942], ["checksum", "fj6gdvcP+WcnzcwaJmOw9g=="], ["created_at", "2019-05-06 01:20:04.979200"]]
+  ↳ db/seeds.rb:43
+  [1m[35m (22.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:43
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:43
+  [1m[36mActiveStorage::Attachment Create (0.5ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "image"], ["record_type", "Listing"], ["record_id", 9], ["blob_id", 3], ["created_at", "2019-05-06 01:20:05.004847"]]
+  ↳ db/seeds.rb:43
+  [1m[36mListing Update (0.3ms)[0m  [1m[33mUPDATE "listings" SET "updated_at" = $1 WHERE "listings"."id" = $2[0m  [["updated_at", "2019-05-06 01:20:05.006252"], ["id", 9]]
+  ↳ db/seeds.rb:43
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:43
+[ActiveJob]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob]   ↳ db/seeds.rb:43
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2b20e9a1-aa5b-435e-838b-164e3070965d] Performing ActiveStorage::AnalyzeJob (Job ID: 2b20e9a1-aa5b-435e-838b-164e3070965d) from Inline(default) with arguments: #<GlobalID:0x00007fbb80b51a60 @uri=#<URI::GID gid://marketplace/ActiveStorage::Blob/3>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2b20e9a1-aa5b-435e-838b-164e3070965d] [36m  Disk Storage (0.6ms) [0m[34mDownloaded file from key: maAgGdpphyiLQU6KAPTofN61[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2b20e9a1-aa5b-435e-838b-164e3070965d]   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2b20e9a1-aa5b-435e-838b-164e3070965d]   ↳ db/seeds.rb:43
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2b20e9a1-aa5b-435e-838b-164e3070965d]   [1m[36mActiveStorage::Blob Update (0.3ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"width\":844,\"height\":1120,\"analyzed\":true}"], ["id", 3]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2b20e9a1-aa5b-435e-838b-164e3070965d]   ↳ db/seeds.rb:43
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2b20e9a1-aa5b-435e-838b-164e3070965d]   [1m[35m (40.7ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2b20e9a1-aa5b-435e-838b-164e3070965d]   ↳ db/seeds.rb:43
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2b20e9a1-aa5b-435e-838b-164e3070965d] Performed ActiveStorage::AnalyzeJob (Job ID: 2b20e9a1-aa5b-435e-838b-164e3070965d) from Inline(default) in 58.08ms
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 2b20e9a1-aa5b-435e-838b-164e3070965d) to Inline(default) with arguments: #<GlobalID:0x00007fbb7e171178 @uri=#<URI::GID gid://marketplace/ActiveStorage::Blob/3>>
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:45
+  [1m[36mListing Create (0.4ms)[0m  [1m[32mINSERT INTO "listings" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Nelly"], ["description", "Nelly is a great dog. "], ["price", "9000.0"], ["created_at", "2019-05-06 01:20:05.070394"], ["updated_at", "2019-05-06 01:20:05.070394"]]
+  ↳ db/seeds.rb:45
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:45
+[36m  Disk Storage (3.6ms) [0m[32mUploaded file to key: qKpBz4VjxhE8YP42qdkPq5E8 (checksum: 8H41FYkzWHrw+RCObqpeuA==)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:50
+  [1m[36mActiveStorage::Blob Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "qKpBz4VjxhE8YP42qdkPq5E8"], ["filename", "dog4.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["byte_size", 662250], ["checksum", "8H41FYkzWHrw+RCObqpeuA=="], ["created_at", "2019-05-06 01:20:05.080587"]]
+  ↳ db/seeds.rb:50
+  [1m[35m (40.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:50
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:50
+  [1m[36mActiveStorage::Attachment Create (0.5ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "image"], ["record_type", "Listing"], ["record_id", 10], ["blob_id", 4], ["created_at", "2019-05-06 01:20:05.124263"]]
+  ↳ db/seeds.rb:50
+  [1m[36mListing Update (0.3ms)[0m  [1m[33mUPDATE "listings" SET "updated_at" = $1 WHERE "listings"."id" = $2[0m  [["updated_at", "2019-05-06 01:20:05.125581"], ["id", 10]]
+  ↳ db/seeds.rb:50
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:50
+[ActiveJob]   [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob]   ↳ db/seeds.rb:50
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2c2a3462-2d56-4d20-a035-0b8d91ca3cce] Performing ActiveStorage::AnalyzeJob (Job ID: 2c2a3462-2d56-4d20-a035-0b8d91ca3cce) from Inline(default) with arguments: #<GlobalID:0x00007fbb7c28b7b8 @uri=#<URI::GID gid://marketplace/ActiveStorage::Blob/4>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2c2a3462-2d56-4d20-a035-0b8d91ca3cce] [36m  Disk Storage (0.5ms) [0m[34mDownloaded file from key: qKpBz4VjxhE8YP42qdkPq5E8[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2c2a3462-2d56-4d20-a035-0b8d91ca3cce]   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2c2a3462-2d56-4d20-a035-0b8d91ca3cce]   ↳ db/seeds.rb:50
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2c2a3462-2d56-4d20-a035-0b8d91ca3cce]   [1m[36mActiveStorage::Blob Update (0.3ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"width\":942,\"height\":586,\"analyzed\":true}"], ["id", 4]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2c2a3462-2d56-4d20-a035-0b8d91ca3cce]   ↳ db/seeds.rb:50
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2c2a3462-2d56-4d20-a035-0b8d91ca3cce]   [1m[35m (16.2ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2c2a3462-2d56-4d20-a035-0b8d91ca3cce]   ↳ db/seeds.rb:50
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2c2a3462-2d56-4d20-a035-0b8d91ca3cce] Performed ActiveStorage::AnalyzeJob (Job ID: 2c2a3462-2d56-4d20-a035-0b8d91ca3cce) from Inline(default) in 34.41ms
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 2c2a3462-2d56-4d20-a035-0b8d91ca3cce) to Inline(default) with arguments: #<GlobalID:0x00007fbb7c2a3bd8 @uri=#<URI::GID gid://marketplace/ActiveStorage::Blob/4>>
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/Cellar/ruby/2.6.2/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mListing Create (0.4ms)[0m  [1m[32mINSERT INTO "listings" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Molly"], ["description", "Molly is a great dog. "], ["price", "1000.0"], ["created_at", "2019-05-06 01:20:30.465640"], ["updated_at", "2019-05-06 01:20:30.465640"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+[36m  Disk Storage (10.0ms) [0m[32mUploaded file to key: WK3RhU925P4SExyYWa7DJon9 (checksum: Fh9QzC32i3ZmbSNeP2Crag==)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:29
+  [1m[36mActiveStorage::Blob Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "WK3RhU925P4SExyYWa7DJon9"], ["filename", "dog1.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["byte_size", 1648527], ["checksum", "Fh9QzC32i3ZmbSNeP2Crag=="], ["created_at", "2019-05-06 01:20:30.527808"]]
+  ↳ db/seeds.rb:29
+  [1m[35m (40.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:29
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:29
+  [1m[36mActiveStorage::Attachment Create (0.9ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "image"], ["record_type", "Listing"], ["record_id", 11], ["blob_id", 5], ["created_at", "2019-05-06 01:20:30.595259"]]
+  ↳ db/seeds.rb:29
+  [1m[36mListing Update (0.3ms)[0m  [1m[33mUPDATE "listings" SET "updated_at" = $1 WHERE "listings"."id" = $2[0m  [["updated_at", "2019-05-06 01:20:30.596952"], ["id", 11]]
+  ↳ db/seeds.rb:29
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:29
+[ActiveJob]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[ActiveJob]   ↳ db/seeds.rb:29
+[ActiveJob] [ActiveStorage::AnalyzeJob] [44c51703-7ab2-4f49-a1f8-15bf4d42c22c] Performing ActiveStorage::AnalyzeJob (Job ID: 44c51703-7ab2-4f49-a1f8-15bf4d42c22c) from Inline(default) with arguments: #<GlobalID:0x00007fa7a4d0c9f8 @uri=#<URI::GID gid://marketplace/ActiveStorage::Blob/5>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [44c51703-7ab2-4f49-a1f8-15bf4d42c22c] [36m  Disk Storage (1.2ms) [0m[34mDownloaded file from key: WK3RhU925P4SExyYWa7DJon9[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [44c51703-7ab2-4f49-a1f8-15bf4d42c22c]   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [44c51703-7ab2-4f49-a1f8-15bf4d42c22c]   ↳ db/seeds.rb:29
+[ActiveJob] [ActiveStorage::AnalyzeJob] [44c51703-7ab2-4f49-a1f8-15bf4d42c22c]   [1m[36mActiveStorage::Blob Update (0.3ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"width\":1638,\"height\":1108,\"analyzed\":true}"], ["id", 5]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [44c51703-7ab2-4f49-a1f8-15bf4d42c22c]   ↳ db/seeds.rb:29
+[ActiveJob] [ActiveStorage::AnalyzeJob] [44c51703-7ab2-4f49-a1f8-15bf4d42c22c]   [1m[35m (40.8ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [44c51703-7ab2-4f49-a1f8-15bf4d42c22c]   ↳ db/seeds.rb:29
+[ActiveJob] [ActiveStorage::AnalyzeJob] [44c51703-7ab2-4f49-a1f8-15bf4d42c22c] Performed ActiveStorage::AnalyzeJob (Job ID: 44c51703-7ab2-4f49-a1f8-15bf4d42c22c) from Inline(default) in 61.84ms
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 44c51703-7ab2-4f49-a1f8-15bf4d42c22c) to Inline(default) with arguments: #<GlobalID:0x00007fa7a4e9b738 @uri=#<URI::GID gid://marketplace/ActiveStorage::Blob/5>>
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:31
+  [1m[36mListing Create (0.4ms)[0m  [1m[32mINSERT INTO "listings" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bonnie and Clyde"], ["description", "Bonnie and Clyde are both great dogs. "], ["price", "5000.0"], ["created_at", "2019-05-06 01:20:30.681992"], ["updated_at", "2019-05-06 01:20:30.681992"]]
+  ↳ db/seeds.rb:31
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:31
+[36m  Disk Storage (6.5ms) [0m[32mUploaded file to key: 1ZY4TMsRMrX5dYTDzmHT7o9w (checksum: 6ew9ZcS8+fjUd0HQ9GHy1A==)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:36
+  [1m[36mActiveStorage::Blob Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "1ZY4TMsRMrX5dYTDzmHT7o9w"], ["filename", "dog2.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["byte_size", 1457474], ["checksum", "6ew9ZcS8+fjUd0HQ9GHy1A=="], ["created_at", "2019-05-06 01:20:30.697765"]]
+  ↳ db/seeds.rb:36
+  [1m[35m (40.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:36
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:36
+  [1m[36mActiveStorage::Attachment Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "image"], ["record_type", "Listing"], ["record_id", 12], ["blob_id", 6], ["created_at", "2019-05-06 01:20:30.740838"]]
+  ↳ db/seeds.rb:36
+  [1m[36mListing Update (0.2ms)[0m  [1m[33mUPDATE "listings" SET "updated_at" = $1 WHERE "listings"."id" = $2[0m  [["updated_at", "2019-05-06 01:20:30.742296"], ["id", 12]]
+  ↳ db/seeds.rb:36
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:36
+[ActiveJob]   [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[ActiveJob]   ↳ db/seeds.rb:36
+[ActiveJob] [ActiveStorage::AnalyzeJob] [7066554e-a94e-4995-b4c3-7257db6db043] Performing ActiveStorage::AnalyzeJob (Job ID: 7066554e-a94e-4995-b4c3-7257db6db043) from Inline(default) with arguments: #<GlobalID:0x00007fa7a352ca40 @uri=#<URI::GID gid://marketplace/ActiveStorage::Blob/6>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [7066554e-a94e-4995-b4c3-7257db6db043] [36m  Disk Storage (1.3ms) [0m[34mDownloaded file from key: 1ZY4TMsRMrX5dYTDzmHT7o9w[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [7066554e-a94e-4995-b4c3-7257db6db043]   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [7066554e-a94e-4995-b4c3-7257db6db043]   ↳ db/seeds.rb:36
+[ActiveJob] [ActiveStorage::AnalyzeJob] [7066554e-a94e-4995-b4c3-7257db6db043]   [1m[36mActiveStorage::Blob Update (0.3ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"width\":1658,\"height\":1110,\"analyzed\":true}"], ["id", 6]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [7066554e-a94e-4995-b4c3-7257db6db043]   ↳ db/seeds.rb:36
+[ActiveJob] [ActiveStorage::AnalyzeJob] [7066554e-a94e-4995-b4c3-7257db6db043]   [1m[35m (40.8ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [7066554e-a94e-4995-b4c3-7257db6db043]   ↳ db/seeds.rb:36
+[ActiveJob] [ActiveStorage::AnalyzeJob] [7066554e-a94e-4995-b4c3-7257db6db043] Performed ActiveStorage::AnalyzeJob (Job ID: 7066554e-a94e-4995-b4c3-7257db6db043) from Inline(default) in 60.94ms
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 7066554e-a94e-4995-b4c3-7257db6db043) to Inline(default) with arguments: #<GlobalID:0x00007fa7a38ce900 @uri=#<URI::GID gid://marketplace/ActiveStorage::Blob/6>>
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:38
+  [1m[36mListing Create (0.3ms)[0m  [1m[32mINSERT INTO "listings" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Myffy"], ["description", "Myffy is a great dog. "], ["price", "2500.0"], ["created_at", "2019-05-06 01:20:30.812301"], ["updated_at", "2019-05-06 01:20:30.812301"]]
+  ↳ db/seeds.rb:38
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:38
+[36m  Disk Storage (4.4ms) [0m[32mUploaded file to key: MMkcYrwFBok2i1PF89f8mZV4 (checksum: fj6gdvcP+WcnzcwaJmOw9g==)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:43
+  [1m[36mActiveStorage::Blob Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "MMkcYrwFBok2i1PF89f8mZV4"], ["filename", "dog3.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["byte_size", 918942], ["checksum", "fj6gdvcP+WcnzcwaJmOw9g=="], ["created_at", "2019-05-06 01:20:30.823606"]]
+  ↳ db/seeds.rb:43
+  [1m[35m (40.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:43
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:43
+  [1m[36mActiveStorage::Attachment Create (0.5ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "image"], ["record_type", "Listing"], ["record_id", 13], ["blob_id", 7], ["created_at", "2019-05-06 01:20:30.867360"]]
+  ↳ db/seeds.rb:43
+  [1m[36mListing Update (0.4ms)[0m  [1m[33mUPDATE "listings" SET "updated_at" = $1 WHERE "listings"."id" = $2[0m  [["updated_at", "2019-05-06 01:20:30.868705"], ["id", 13]]
+  ↳ db/seeds.rb:43
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:43
+[ActiveJob]   [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[ActiveJob]   ↳ db/seeds.rb:43
+[ActiveJob] [ActiveStorage::AnalyzeJob] [0b2f357c-7e00-4ab1-92ff-aabb8ac41639] Performing ActiveStorage::AnalyzeJob (Job ID: 0b2f357c-7e00-4ab1-92ff-aabb8ac41639) from Inline(default) with arguments: #<GlobalID:0x00007fa7a6856ec0 @uri=#<URI::GID gid://marketplace/ActiveStorage::Blob/7>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [0b2f357c-7e00-4ab1-92ff-aabb8ac41639] [36m  Disk Storage (0.8ms) [0m[34mDownloaded file from key: MMkcYrwFBok2i1PF89f8mZV4[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [0b2f357c-7e00-4ab1-92ff-aabb8ac41639]   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [0b2f357c-7e00-4ab1-92ff-aabb8ac41639]   ↳ db/seeds.rb:43
+[ActiveJob] [ActiveStorage::AnalyzeJob] [0b2f357c-7e00-4ab1-92ff-aabb8ac41639]   [1m[36mActiveStorage::Blob Update (0.3ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"width\":844,\"height\":1120,\"analyzed\":true}"], ["id", 7]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [0b2f357c-7e00-4ab1-92ff-aabb8ac41639]   ↳ db/seeds.rb:43
+[ActiveJob] [ActiveStorage::AnalyzeJob] [0b2f357c-7e00-4ab1-92ff-aabb8ac41639]   [1m[35m (40.8ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [0b2f357c-7e00-4ab1-92ff-aabb8ac41639]   ↳ db/seeds.rb:43
+[ActiveJob] [ActiveStorage::AnalyzeJob] [0b2f357c-7e00-4ab1-92ff-aabb8ac41639] Performed ActiveStorage::AnalyzeJob (Job ID: 0b2f357c-7e00-4ab1-92ff-aabb8ac41639) from Inline(default) in 59.35ms
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 0b2f357c-7e00-4ab1-92ff-aabb8ac41639) to Inline(default) with arguments: #<GlobalID:0x00007fa7a3a6ea58 @uri=#<URI::GID gid://marketplace/ActiveStorage::Blob/7>>
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:45
+  [1m[36mListing Create (0.3ms)[0m  [1m[32mINSERT INTO "listings" ("name", "description", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Nelly"], ["description", "Nelly is a great dog. "], ["price", "9000.0"], ["created_at", "2019-05-06 01:20:30.936093"], ["updated_at", "2019-05-06 01:20:30.936093"]]
+  ↳ db/seeds.rb:45
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:45
+[36m  Disk Storage (3.4ms) [0m[32mUploaded file to key: V7xUWqjm6qAGravC13yVNSxD (checksum: 8H41FYkzWHrw+RCObqpeuA==)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:50
+  [1m[36mActiveStorage::Blob Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "V7xUWqjm6qAGravC13yVNSxD"], ["filename", "dog4.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["byte_size", 662250], ["checksum", "8H41FYkzWHrw+RCObqpeuA=="], ["created_at", "2019-05-06 01:20:30.945876"]]
+  ↳ db/seeds.rb:50
+  [1m[35m (40.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:50
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:50
+  [1m[36mActiveStorage::Attachment Create (0.5ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "image"], ["record_type", "Listing"], ["record_id", 14], ["blob_id", 8], ["created_at", "2019-05-06 01:20:30.989543"]]
+  ↳ db/seeds.rb:50
+  [1m[36mListing Update (0.3ms)[0m  [1m[33mUPDATE "listings" SET "updated_at" = $1 WHERE "listings"."id" = $2[0m  [["updated_at", "2019-05-06 01:20:30.991061"], ["id", 14]]
+  ↳ db/seeds.rb:50
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:50
+[ActiveJob]   [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[ActiveJob]   ↳ db/seeds.rb:50
+[ActiveJob] [ActiveStorage::AnalyzeJob] [8fc4fc45-47cc-4385-967e-2c0ed3ac142d] Performing ActiveStorage::AnalyzeJob (Job ID: 8fc4fc45-47cc-4385-967e-2c0ed3ac142d) from Inline(default) with arguments: #<GlobalID:0x00007fa7a4f363f0 @uri=#<URI::GID gid://marketplace/ActiveStorage::Blob/8>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [8fc4fc45-47cc-4385-967e-2c0ed3ac142d] [36m  Disk Storage (0.6ms) [0m[34mDownloaded file from key: V7xUWqjm6qAGravC13yVNSxD[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [8fc4fc45-47cc-4385-967e-2c0ed3ac142d]   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [8fc4fc45-47cc-4385-967e-2c0ed3ac142d]   ↳ db/seeds.rb:50
+[ActiveJob] [ActiveStorage::AnalyzeJob] [8fc4fc45-47cc-4385-967e-2c0ed3ac142d]   [1m[36mActiveStorage::Blob Update (0.3ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"width\":942,\"height\":586,\"analyzed\":true}"], ["id", 8]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [8fc4fc45-47cc-4385-967e-2c0ed3ac142d]   ↳ db/seeds.rb:50
+[ActiveJob] [ActiveStorage::AnalyzeJob] [8fc4fc45-47cc-4385-967e-2c0ed3ac142d]   [1m[35m (40.7ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [8fc4fc45-47cc-4385-967e-2c0ed3ac142d]   ↳ db/seeds.rb:50
+[ActiveJob] [ActiveStorage::AnalyzeJob] [8fc4fc45-47cc-4385-967e-2c0ed3ac142d] Performed ActiveStorage::AnalyzeJob (Job ID: 8fc4fc45-47cc-4385-967e-2c0ed3ac142d) from Inline(default) in 59.61ms
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 8fc4fc45-47cc-4385-967e-2c0ed3ac142d) to Inline(default) with arguments: #<GlobalID:0x00007fa7a4f5f070 @uri=#<URI::GID gid://marketplace/ActiveStorage::Blob/8>>
+Started GET "/listings" for ::1 at 2019-05-06 11:20:41 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.7ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:5
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Listing"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:9
+  Rendered listings/index.html.erb within layouts/application (7.2ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 1.6ms)
+
+
+  
+ActionView::Template::Error (variant delegated to attachment, but attachment is nil):
+     6:     <div class="col-md-3">
+     7:     <div class="wrap">
+     8:       <div class="thumbnail">
+     9:           <%= image_tag listing.medium %>
+    10:       </div><!--thumbnail-->
+    11:       <div class="caption">
+    12:           <h3><%= listing.name %></h3>
+  
+app/models/listing.rb:9:in `medium'
+app/views/listings/index.html.erb:9:in `block in _app_views_listings_index_html_erb__2401717430521661990_70340696489800'
+app/views/listings/index.html.erb:5:in `_app_views_listings_index_html_erb__2401717430521661990_70340696489800'
+Started GET "/listings" for ::1 at 2019-05-06 11:20:42 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:5
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Listing"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:9
+  Rendered listings/index.html.erb within layouts/application (6.6ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (variant delegated to attachment, but attachment is nil):
+     6:     <div class="col-md-3">
+     7:     <div class="wrap">
+     8:       <div class="thumbnail">
+     9:           <%= image_tag listing.medium %>
+    10:       </div><!--thumbnail-->
+    11:       <div class="caption">
+    12:           <h3><%= listing.name %></h3>
+  
+app/models/listing.rb:9:in `medium'
+app/views/listings/index.html.erb:9:in `block in _app_views_listings_index_html_erb__2401717430521661990_70340682502860'
+app/views/listings/index.html.erb:5:in `_app_views_listings_index_html_erb__2401717430521661990_70340682502860'
