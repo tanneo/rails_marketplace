@@ -3729,3 +3729,11 @@ Processing by ListingsController#new as HTML
 Completed 200 OK in 47ms (Views: 45.2ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/listings/new" for ::1 at 2019-05-06 11:53:02 +1000
+Processing by ListingsController#new as HTML
+  Rendering listings/new.html.erb within layouts/application
+  Rendered listings/_form.html.erb (2.4ms)
+  Rendered listings/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 58ms (Views: 56.7ms | ActiveRecord: 0.0ms)
+
+
