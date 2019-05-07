@@ -5787,3 +5787,25 @@ Processing by Devise::RegistrationsController#new as HTML
 Completed 200 OK in 65ms (Views: 48.8ms | ActiveRecord: 4.7ms)
 
 
+Started GET "/users/sign_up" for ::1 at 2019-05-07 10:23:26 +1000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.7ms)
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (6.0ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 66ms (Views: 64.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-05-07 10:23:30 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (1.1ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/listings/index.html.erb:5
+  Rendered listings/index.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 49ms (Views: 46.4ms | ActiveRecord: 1.1ms)
+
+
