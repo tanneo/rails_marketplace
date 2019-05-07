@@ -75,9 +75,10 @@ class ListingsController < ApplicationController
         params.require(:listing).permit(:name, :description, :price, :image)
       end
 
+      #checks to see if the current user that is logged in, is the same as the user that created the listing in question
       def check_user
         if current_user != @listing.user
-          redirect_to root_url, alert: "Sorry, this listing belongs to someone else"
+          redirect_to root_url, alert: "Sorry, this listing belongs to someone else" 
         end
       end
   end

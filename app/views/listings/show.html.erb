@@ -18,6 +18,8 @@
 
 <%= image_tag @listing.image, width: 500 %>
 
-
-<%= link_to 'Edit', edit_listing_path(@listing), class: "btn btn-link" %> |
+<!-- if current user is the same person that created the listing than show the edit link, else just show back-->
+<% if current_user == @listing.user %>
+  <%= link_to 'Edit', edit_listing_path(@listing), class: "btn btn-link" %> |
+<% end %>
 <%= link_to 'Back', listings_path, class: "btn btn-link" %>
