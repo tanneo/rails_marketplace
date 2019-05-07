@@ -1,5 +1,7 @@
 class ListingsController < ApplicationController
     before_action :set_listing, only: [:image, :show, :edit, :update, :destroy]
+    before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy] #before a user takes these actions, need to authenticate them first by making sure that they are signed in
+    before_action :check_user, only: [:edit, :update, :destroy] #no check_user keyword in devise so need to make own function in private at bottom of screen
   
     # GET /listings
     # GET /listings.json
@@ -71,5 +73,11 @@ class ListingsController < ApplicationController
       # Never trust parameters from the scary internet, only allow the white list through.
       def listing_params
         params.require(:listing).permit(:name, :description, :price, :image)
+      end
+
+      def check_user
+        if current_user != @listing.user
+          redirect_to root_url, alert: "Sorry, this listing belongs to someone else"
+        end
       end
   end
