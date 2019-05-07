@@ -6,7 +6,7 @@ class Listing < ApplicationRecord
     end
 
     def medium
-        # return self.image.variant(resize: "200x200")
+        return self.image.variant(resize: "200x200")
     end
 
     # validates data fields 
