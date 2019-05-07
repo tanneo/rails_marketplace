@@ -5809,3 +5809,12 @@ Processing by ListingsController#index as HTML
 Completed 200 OK in 49ms (Views: 46.4ms | ActiveRecord: 1.1ms)
 
 
+Started GET "/rails/info/routes" for ::1 at 2019-05-07 10:26:22 +1000
+Processing by Rails::InfoController#routes as HTML
+  Rendering /usr/local/lib/ruby/gems/2.6.0/gems/railties-5.2.3/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /usr/local/lib/ruby/gems/2.6.0/gems/actionpack-5.2.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb [31 times] (7.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/actionpack-5.2.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms)
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/railties-5.2.3/lib/rails/templates/rails/info/routes.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 17ms (Views: 15.1ms | ActiveRecord: 0.0ms)
+
+
