@@ -12,6 +12,8 @@ class Listing < ApplicationRecord
     # validates data fields 
     validates :name, :description, :price, :image, presence: true
     validates :price, numericality: {greater_than: 0 }
+
+    belongs_to :user
 end
 
 def correct_image_type
