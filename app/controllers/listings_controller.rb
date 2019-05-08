@@ -1,12 +1,18 @@
 class ListingsController < ApplicationController
     before_action :set_listing, only: [:image, :show, :edit, :update, :destroy]
-    before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy] #before a user takes these actions, need to authenticate them first by making sure that they are signed in
+    before_action :authenticate_user!, only: [:seller, :new, :create, :edit, :update, :destroy] #before a user takes these actions, need to authenticate them first by making sure that they are signed in
     before_action :check_user, only: [:edit, :update, :destroy] #no check_user keyword in devise so need to make own function in private at bottom of screen
   
+     # When a user wants to go to new seller URL, the listings that they want to see are the same listings as the signed in user and orders them to when they were created in descending order
+    def seller
+      @listings = Listing.where(user: current_user).order("created_at DESC")
+    end
+
     # GET /listings
     # GET /listings.json
+    # Display all Listings
     def index
-      @listings = Listing.all
+      @listings = Listing.all.order("created_at DESC")
     end
   
     # GET /listings/1

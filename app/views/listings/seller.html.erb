@@ -1,5 +1,4 @@
 
-
   <div class="row">
       <% @listings.each do |listing| %>
     <div class="col-md-3">
@@ -12,6 +11,10 @@
           <p><%= number_to_currency(listing.price) %></p>
           <p><%= "Sold by #{listing.user.name}" %></p>
         <%= link_to 'Show', listing, class: "btn btn-primary" %>
+        <% if (user_signed_in?) && (current_user == listing.user) %> <!---if the user is signed in and the current user created the post, display edit and destroy-->
+          <%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-warning" %>
+          <%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+        <% end %>
       </div><!---caption-->
       </div>
     </div><!--col-md-3-->
@@ -21,4 +24,3 @@
   <% if user_signed_in? %>
   <%= link_to 'New Listing', new_listing_path, class: "btn btn-dark" %> <!---Only signed in users can see link to post a new listing-->
   <% end %>
-

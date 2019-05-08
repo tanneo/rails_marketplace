@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   get 'pages/about'
   get 'pages/contact'
-  root 'listings#index'
+  root 'listings#index'#sets root file to all listings
+  get 'seller' => 'listings#seller' #creates a new url at localhost/seller
   resources :listings
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
