@@ -34,6 +34,7 @@ class ListingsController < ApplicationController
     def create
       @listing = Listing.new(listing_params)
       @listing.user_id = current_user.id #Devise uses helpful keyword current_user which is getting current user and setting it to the id of the current listing
+      
   
       respond_to do |format|
         if @listing.save
