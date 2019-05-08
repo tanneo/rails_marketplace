@@ -1,25 +1,27 @@
-<div class="jumbotron">
-  <h1> Goods marketplace </h1>
-  <h2> Description </h2>
-</div>
+<div class="center">
+  <div class="jumbotron">
+    <h1> Your one stop shop! </h1>
+    <h2> Find your favourite items here </h2>
+  </div>
 
   <div class="row">
-      <% @listings.each do |listing| %>
-    <div class="col-md-3">
-      <div class="wrap">
-        <div class="thumbnail">
-          <%= link_to image_tag(listing.medium), listing %>
-            <div class="caption">
-            <h3> <%= listing.name %></h3>
-            <p><%= number_to_currency(listing.price) %></p>
-            <p><%= "Sold by #{listing.user.name}" %></p>
-            <%= link_to 'Show', listing, class: "btn btn-primary" %>
-            </div><!---caption-->
-        </div><!--thumbnail-->
-      </div> <!--wrap-->
-    </div><!--col-md-3-->
-  <% end %>
-</div><!--row-->
+    <% @listings.each do |listing| %>
+      <div class="col-md-3">
+        <div class="wrap">
+          <div class="thumbnail">
+            <%= link_to image_tag(listing.medium), listing %>
+              <div class="caption">
+              <h3> <%= listing.name %></h3>
+              <p><%= number_to_currency(listing.price) %></p>
+              <p><%= "Sold by #{listing.user.name}" %></p>
+              <%= link_to 'Show', listing, class: "btn btn-link" %>
+              </div><!---caption-->
+          </div><!--thumbnail-->
+        </div> <!--wrap-->
+      </div><!--col-md-3-->
+    <% end %>
+  </div><!--row-->
+</div> <!--center-->
 
   <% if user_signed_in? %>
   <%= link_to 'New Listing', new_listing_path, class: "btn btn-dark" %> <!---Only signed in users can see link to post a new listing-->
