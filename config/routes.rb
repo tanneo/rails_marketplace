@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'purchases' => "orders#purchases" #set up new url for purchases to see order history
 
   resources :listings do #tell rails to include listing id number in URL for orders pages
-  resources :orders
+  resources :orders :only [:new, :create ] #tells rails that only URLS it needs to worry about when it comes to orders is for new and create actions
   end
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
