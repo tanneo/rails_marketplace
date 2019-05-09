@@ -1,7 +1,8 @@
-<%= form_for([@listing, @order]) do |form| %>
-  <% if order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+<%= form_for([@listing, @order]) do |form| %> <!-- rails can see that the listing is a type of listing and an order is a type order so will plug in the correct route to save the data-->
+    <% if @order.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <h4><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h4>
 
       <ul>
       <% order.errors.full_messages.each do |message| %>
@@ -11,22 +12,22 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :address %>
-    <%= form.text_field :address %>
+    <%= form.text_field :address, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :city %>
-    <%= form.text_field :city %>
+    <%= form.text_field :city, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :state %>
-    <%= form.text_field :state %>
+    <%= form.text_field :state, class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit "Complete Order", class: "btn btn-success" %>
   </div>
 <% end %>

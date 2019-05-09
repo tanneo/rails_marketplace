@@ -7,7 +7,11 @@
   <div class="col-md-6">
     <h3> <%= @listing.name %> </h3>
     <p> <%= number_to_currency(@listing.price) %> </p>
-    <%= @listing.description %>
+    <p><%= @listing.description %> </p>
+    <br>
+      <div class="center">
+    <%= link_to "Buy It now", new_listing_order_path(@listing), class: "btn btn-primary" %> <!-- shortcut to tell rails to use id of current listing-->
+      </div> <!-- close center !-->
   </div>
 </div>
 

@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user! #make sure user signed in before they place an order
+  before_action :authenticate_user! #make sure user signed in before they place an order. Devise gives us this special keyword
 
   # GET /orders
   # GET /orders.json
@@ -26,13 +26,14 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @listing = Listing.new(listing_params)
-    @listing.user_id = current_user.id #Devise uses helpful keyword current_user which is getting current user and setting it to the id of the current listing
-
+    @order = Order.new(order_params) #create new order and pass in parameters from private section below
+    @listing = Listing.find(params[:listing_id]) #can find the listing of the id that is being bought in the url
+    @seller = @listing.user #the seller of the listing is the same as the user who created the listing
+    
     #tells rails how to fill out columns
-    @order.listing_id = @listing.id #tell rails how to fill in listing id column.
-    @order.buyer_id = current_user.id #this was created through the migration. Buyer of the order is the current user
-    @order.seller_id = @seller.id #the seller of the listing is the same as the user who created the listing
+    @order.listing_id = @listing.id #tell rails how to fill in order listing id in datasbase with the listing id
+    @order.buyer_id = current_user.id #Tells rails to fil out the buyer id column in the database with the current user id
+    @order.seller_id = @seller.id #Tells rails to fill out seller id coluumn in the database
 
     respond_to do |format|
         if @order.save
@@ -79,4 +80,4 @@ class OrdersController < ApplicationController
     def order_params
       params.require(:order).permit(:address, :city, :state)
     end
-
+end
