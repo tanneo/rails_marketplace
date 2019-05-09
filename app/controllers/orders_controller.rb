@@ -37,10 +37,9 @@ class OrdersController < ApplicationController
     @order.buyer_id = current_user.id #Tells rails to fil out the buyer id column in the database with the current user id
     @order.seller_id = @seller.id #Tells rails to fill out seller id coluumn in the database
 
-    Stripe.api_key = ENV["STRIPE_API_KEY"]
-    token = params[:stripeToken]
+    Stripe.api_key = ENV["STRIPE_API_KEY"] 
 
-    session = Stripe::Checkout::Session.create(
+    @stripe_checkout_session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: [{
         name: @listing.name,
