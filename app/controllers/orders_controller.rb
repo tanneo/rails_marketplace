@@ -22,6 +22,7 @@ class OrdersController < ApplicationController
     @listing = Listing.find(params[:listing_id]) 
   end
 
+
  #deleted edit
 
   # POST /orders
@@ -35,6 +36,22 @@ class OrdersController < ApplicationController
     @order.listing_id = @listing.id #tell rails how to fill in order listing id in datasbase with the listing id
     @order.buyer_id = current_user.id #Tells rails to fil out the buyer id column in the database with the current user id
     @order.seller_id = @seller.id #Tells rails to fill out seller id coluumn in the database
+
+    Stripe.api_key = ENV["STRIPE_API_KEY"]
+    token = params[:stripeToken]
+
+    session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      line_items: [{
+        name: @listing.name,
+        description: @listing.description,
+        amount: (@listing.price * 100).floor,
+        currency: 'aud',
+        quantity: 1,
+      }],
+      success_url: 'https://localhost:3000/success',
+      cancel_url: 'https://localhost:3000/cancel',
+    )
 
     respond_to do |format|
         if @order.save
@@ -59,4 +76,4 @@ class OrdersController < ApplicationController
     def order_params
       params.require(:order).permit(:address, :city, :state)
     end
-end
+  end

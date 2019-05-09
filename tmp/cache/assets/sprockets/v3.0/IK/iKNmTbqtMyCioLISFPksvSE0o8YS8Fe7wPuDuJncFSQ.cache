@@ -1,0 +1,27 @@
+I"‡(function() {
+  var payment;
+
+  jQuery(function() {
+    Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'));
+    return payment.setupForm();
+  });
+
+  payment = {
+    setupForm: function() {
+      return $('#new_order').submit(function() {
+        $('input[type=submit]').attr('disabled', true);
+        Stripe.card.createToken($('#new_order'), payment.handleStripeResponse);
+        return false;
+      });
+    },
+    handleStripeResponse: function(status, response) {
+      if (status === 200) {
+        return alert(response.id);
+      } else {
+        return alert(response.error.message);
+      }
+    }
+  };
+
+}).call(this);
+:ET

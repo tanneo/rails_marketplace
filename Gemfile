@@ -17,7 +17,7 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'mini_magick', '~> 4.9', '>= 4.9.3'
 gem 'image_magick', '~> 0.1.9'
 gem 'devise', '~> 4.6', '>= 4.6.2'
-gem 'stripe'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem "figaro"
 
 
