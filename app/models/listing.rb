@@ -11,6 +11,10 @@ class Listing < ApplicationRecord
         return self.image.variant(resize: "200x200")
     end
 
+    def large
+        return self.image.variant(resize: "300x300")
+    end
+
     # validates data fields 
     validates :name, :description, :price, :image, presence: true
     validates :price, numericality: {greater_than: 0 }

@@ -1,60 +1,70 @@
-<%= form_for([@listing, @order]) do |form| %> <!-- rails can see that the listing is a type of listing and an order is a type order so will plug in the correct route to save the data-->
-    <% if @order.errors.any? %>
-    <div id="error_explanation" class="alert alert-danger alert-dismissable">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <h4><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h4>
+<div class="row">
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <%= link_to image_tag (@listing.large) %>
+      </div> <!--thumbnail-->
+    </div> <!--col-md-4-->
+    <div class="col-md-8">
+      <%= form_for([@listing, @order]) do |form| %> <!-- rails can see that the listing is a type of listing and an order is a type order so will plug in the correct route to save the data-->
+      <% if @order.errors.any? %>
+      <div id="error_explanation" class="alert alert-danger alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h4><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h4>
 
-      <ul>
-      <% order.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% order.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= form.label :address %>
+      <%= form.text_field :address, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :city %>
+      <%= form.text_field :city, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :state %>
+      <%= form.text_field :state, class: "form-control" %>
+    </div>
+
+  <!-- Fields for users to input credit card number and CVC -->
+  <div class="form-group">
+      <div class="row">
+        <div class="col-md-8">
+          <%= label_tag :card_number, "Credit Card Number" %>
+          <%= text_field_tag :card_number, nil, { :name => nil, :'data-stripe' => "number", class: "form-control" } %>
+        </div>
+        <div class="col-md-4">
+          <%= label_tag :card_code, "CVC" %>
+          <%= text_field_tag :card_code, nil, { :name => nil, :'data-stripe' => "cvc", class: "form-control" } %>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= label_tag nil, "Expiration Date" %>
+      <div class="row">
+      <!-- Use rails key word select_month to create dropdown menu and to display as two digit numbers -->
+        <div class="col-md-3">
+          <%= select_month nil, { use_two_digit_numbers: true }, { :name => nil, :'data-stripe' => "exp-month", class: "form-control" } %>
+        </div>
+        <!-- Use rails key word select_year to crate a drop down and can select start year from today and end year in 10 years -->
+        <div class="col-md-3">
+          <%= select_year nil, { start_year: Date.today.year, end_year: Date.today.year+10 }, { :name => nil, :'data-stripe' => "exp-year", class: "form-control" } %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.submit "Complete Order", class: "btn btn-success" %>
     </div>
   <% end %>
+  </div> <!--col-md-8-->
+</div> <!--row-->
 
-  <div class="form-group">
-    <%= form.label :address %>
-    <%= form.text_field :address, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :city %>
-    <%= form.text_field :city, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :state %>
-    <%= form.text_field :state, class: "form-control" %>
-  </div>
-
-<!-- Fields for users to input credit card number and CVC -->
- <div class="form-group">
-    <div class="row">
-      <div class="col-md-8">
-        <%= label_tag :card_number, "Credit Card Number" %>
-        <%= text_field_tag :card_number, nil, { :name => nil, :'data-stripe' => "number", class: "form-control" } %>
-      </div>
-      <div class="col-md-4">
-        <%= label_tag :card_code, "CVC" %>
-        <%= text_field_tag :card_code, nil, { :name => nil, :'data-stripe' => "cvc", class: "form-control" } %>
-      </div>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= label_tag nil, "Expiration Date" %>
-    <div class="row">
-    <!-- Use rails key word select_month to create dropdown menu and to display as two digit numbers -->
-      <div class="col-md-3">
-        <%= select_month nil, { use_two_digit_numbers: true }, { :name => nil, :'data-stripe' => "exp-month", class: "form-control" } %>
-      </div>
-      <!-- Use rails key word select_year to crate a drop down and can select start year from today and end year in 10 years -->
-      <div class="col-md-3">
-        <%= select_year nil, { start_year: Date.today.year, end_year: Date.today.year+10 }, { :name => nil, :'data-stripe' => "exp-year", class: "form-control" } %>
-      </div>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= form.submit "Complete Order", class: "btn btn-success" %>
-  </div>
-<% end %>
