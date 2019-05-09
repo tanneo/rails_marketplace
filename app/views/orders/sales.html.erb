@@ -1,0 +1,19 @@
+<table class="table table-striped table-bordered">
+  <tr>
+    <th>Image</th>
+    <th>Item</th> 
+    <th>Price</th>
+    <th>Customer</th>
+    <th>Date Sold</th>
+  </tr>
+
+    <% @orders.each do |order| %>
+        <tr>
+            <td> <%= image_tag order.listing.thumbnail %></td>
+            <td> <%= order.listing.name %></td>
+            <td> <%= number_to_currency(order.listing.price) %></td>
+            <td> <%= order.buyer.name %></td>
+            <td><%= order.created_at.strftime("%-d, %B, %Y") %></td> <!-- Used Ruby time function and formatted to day, month year as in Australia-->
+        </tr>
+    <% end %>
+<table>
