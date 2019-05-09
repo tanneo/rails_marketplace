@@ -23,7 +23,9 @@
   </div><!--row-->
 </div> <!--center-->
 
+<div class="center">
   <% if user_signed_in? %>
   <%= link_to 'New Listing', new_listing_path, class: "btn btn-dark" %> <!---Only signed in users can see link to post a new listing-->
   <% end %>
+</div>
 
