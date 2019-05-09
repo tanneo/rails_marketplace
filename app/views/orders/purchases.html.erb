@@ -1,13 +1,13 @@
 <div class="center">
-    <h2>Your sales history </h2>
+    <h2>Your purchases history </h2>
 </div>
     <table class="table table-striped table-bordered">
     <tr>
         <th>Image</th>
         <th>Item</th> 
         <th>Price</th>
-        <th>Customer</th>
-        <th>Date Sold</th>
+        <th>Seller</th>
+        <th>Date Purchased</th>
     </tr>
 
         <% @orders.each do |order| %>
@@ -15,8 +15,9 @@
                 <td class="center"> <%= image_tag order.listing.thumbnail %></td>
                 <td class="center"> <%= order.listing.name %></td>
                 <td class="center"> <%= number_to_currency(order.listing.price) %></td>
-                <td class="center"> <%= order.buyer.name %></td>
+                <td class="center"> <%= order.seller.name %></td>
                 <td class="center"><%= order.created_at.strftime("%-d, %B, %Y") %></td> <!-- Used Ruby time function and formatted to day, month year as in Australia-->
             </tr>
         <% end %>
     <table>
+</div>

@@ -23800,3 +23800,292 @@ Completed 304 Not Modified in 2ms (ActiveRecord: 0.0ms)
 Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms)
 
 
+Started GET "/sales" for ::1 at 2019-05-09 11:47:38 +1000
+Processing by OrdersController#sales as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendering orders/sales.html.erb within layouts/application
+  [1m[36mOrder Load (1.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."seller_id" = $1 ORDER BY created_at DESC[0m  [["seller_id", 3]]
+  ↳ app/views/orders/sales.html.erb:13
+  Rendered orders/sales.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 72ms (Views: 46.1ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/purchases" for ::1 at 2019-05-09 12:26:40 +1000
+Processing by OrdersController#purchases as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendering orders/purchases.html.erb within layouts/application
+  [1m[36mOrder Load (1.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."buyer_id" = $1 ORDER BY created_at DESC[0m  [["buyer_id", 3]]
+  ↳ app/views/orders/purchases.html.erb:13
+  [1m[36mListing Load (3.3ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/orders/purchases.html.erb:15
+  [1m[36mActiveStorage::Attachment Load (1.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 9], ["record_type", "Listing"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:7
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:7
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/orders/purchases.html.erb:18
+  [1m[36mCACHE Listing Load (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/orders/purchases.html.erb:15
+  [1m[36mCACHE ActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 9], ["record_type", "Listing"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:7
+  [1m[36mCACHE ActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:7
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/orders/purchases.html.erb:18
+  Rendered orders/purchases.html.erb within layouts/application (109.7ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 155ms (Views: 127.1ms | ActiveRecord: 24.7ms)
+
+
+Started GET "/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c1bdb13eb84266174af1f1a7cb881bac084cdfd9/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9MY21WemFYcGxTU0lNTVRBd2VERXdNQVk2QmtWVSIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--44c1a54a5fb1382e99cb249396d56c9dc88c86fa/Screen%20Shot%202019-05-02%20at%2010.49.25%20am.png" for ::1 at 2019-05-09 12:26:41 +1000
+Processing by ActiveStorage::RepresentationsController#show as PNG
+  Parameters: {"signed_blob_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c1bdb13eb84266174af1f1a7cb881bac084cdfd9", "variation_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9MY21WemFYcGxTU0lNTVRBd2VERXdNQVk2QmtWVSIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--44c1a54a5fb1382e99cb249396d56c9dc88c86fa", "filename"=>"Screen Shot 2019-05-02 at 10.49.25 am"}
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (0.0ms) [0m[34mChecked if file exists at key: variants/nw4r1Jv749Samzfwpux9vzjN/82773135f5cd4f53331334d102a8256691a31157cee764ff79a287b4de29202a (yes)[0m
+[36m  Disk Storage (0.6ms) [0m[34mGenerated URL for file at key: variants/nw4r1Jv749Samzfwpux9vzjN/82773135f5cd4f53331334d102a8256691a31157cee764ff79a287b4de29202a (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSm5kbUZ5YVdGdWRITXZibmMwY2pGS2RqYzBPVk5oYlhwbWQzQjFlRGwyZW1wT0x6Z3lOemN6TVRNMVpqVmpaRFJtTlRNek16RXpNelJrTVRBeVlUZ3lOVFkyT1RGaE16RXhOVGRqWldVM05qUm1aamM1WVRJNE4ySTBaR1V5T1RJd01tRUdPZ1pGVkRvUVpHbHpjRzl6YVhScGIyNUpJZ0dDYVc1c2FXNWxPeUJtYVd4bGJtRnRaVDBpVTJOeVpXVnVJRk5vYjNRZ01qQXhPUzB3TlMwd01pQmhkQ0F4TUM0ME9TNHlOU0JoYlM1d2JtY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMU5qY21WbGJpVXlNRk5vYjNRbE1qQXlNREU1TFRBMUxUQXlKVEl3WVhRbE1qQXhNQzQwT1M0eU5TVXlNR0Z0TG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRPSIsImV4cCI6IjIwMTktMDUtMDlUMDI6MzE6NDEuMDMzWiIsInB1ciI6ImJsb2Jfa2V5In19--decfea40181a968cb84bea07e3eec0c65fc82d7c/Screen%20Shot%202019-05-02%20at%2010.49.25%20am.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Screen+Shot+2019-05-02+at+10.49.25+am.png%22%3B+filename%2A%3DUTF-8%27%27Screen%2520Shot%25202019-05-02%2520at%252010.49.25%2520am.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSm5kbUZ5YVdGdWRITXZibmMwY2pGS2RqYzBPVk5oYlhwbWQzQjFlRGwyZW1wT0x6Z3lOemN6TVRNMVpqVmpaRFJtTlRNek16RXpNelJrTVRBeVlUZ3lOVFkyT1RGaE16RXhOVGRqWldVM05qUm1aamM1WVRJNE4ySTBaR1V5T1RJd01tRUdPZ1pGVkRvUVpHbHpjRzl6YVhScGIyNUpJZ0dDYVc1c2FXNWxPeUJtYVd4bGJtRnRaVDBpVTJOeVpXVnVJRk5vYjNRZ01qQXhPUzB3TlMwd01pQmhkQ0F4TUM0ME9TNHlOU0JoYlM1d2JtY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMU5qY21WbGJpVXlNRk5vYjNRbE1qQXlNREU1TFRBMUxUQXlKVEl3WVhRbE1qQXhNQzQwT1M0eU5TVXlNR0Z0TG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRPSIsImV4cCI6IjIwMTktMDUtMDlUMDI6MzE6NDEuMDMzWiIsInB1ciI6ImJsb2Jfa2V5In19--decfea40181a968cb84bea07e3eec0c65fc82d7c/Screen%20Shot%202019-05-02%20at%2010.49.25%20am.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Screen+Shot+2019-05-02+at+10.49.25+am.png%22%3B+filename%2A%3DUTF-8%27%27Screen%2520Shot%25202019-05-02%2520at%252010.49.25%2520am.png
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSm5kbUZ5YVdGdWRITXZibmMwY2pGS2RqYzBPVk5oYlhwbWQzQjFlRGwyZW1wT0x6Z3lOemN6TVRNMVpqVmpaRFJtTlRNek16RXpNelJrTVRBeVlUZ3lOVFkyT1RGaE16RXhOVGRqWldVM05qUm1aamM1WVRJNE4ySTBaR1V5T1RJd01tRUdPZ1pGVkRvUVpHbHpjRzl6YVhScGIyNUpJZ0dDYVc1c2FXNWxPeUJtYVd4bGJtRnRaVDBpVTJOeVpXVnVJRk5vYjNRZ01qQXhPUzB3TlMwd01pQmhkQ0F4TUM0ME9TNHlOU0JoYlM1d2JtY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMU5qY21WbGJpVXlNRk5vYjNRbE1qQXlNREU1TFRBMUxUQXlKVEl3WVhRbE1qQXhNQzQwT1M0eU5TVXlNR0Z0TG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRPSIsImV4cCI6IjIwMTktMDUtMDlUMDI6MzE6NDEuMDMzWiIsInB1ciI6ImJsb2Jfa2V5In19--decfea40181a968cb84bea07e3eec0c65fc82d7c/Screen%20Shot%202019-05-02%20at%2010.49.25%20am.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Screen+Shot+2019-05-02+at+10.49.25+am.png%22%3B+filename%2A%3DUTF-8%27%27Screen%2520Shot%25202019-05-02%2520at%252010.49.25%2520am.png" for ::1 at 2019-05-09 12:26:41 +1000
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"content_type"=>"image/png", "disposition"=>"inline; filename=\"Screen Shot 2019-05-02 at 10.49.25 am.png\"; filename*=UTF-8''Screen%20Shot%202019-05-02%20at%2010.49.25%20am.png", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSm5kbUZ5YVdGdWRITXZibmMwY2pGS2RqYzBPVk5oYlhwbWQzQjFlRGwyZW1wT0x6Z3lOemN6TVRNMVpqVmpaRFJtTlRNek16RXpNelJrTVRBeVlUZ3lOVFkyT1RGaE16RXhOVGRqWldVM05qUm1aamM1WVRJNE4ySTBaR1V5T1RJd01tRUdPZ1pGVkRvUVpHbHpjRzl6YVhScGIyNUpJZ0dDYVc1c2FXNWxPeUJtYVd4bGJtRnRaVDBpVTJOeVpXVnVJRk5vYjNRZ01qQXhPUzB3TlMwd01pQmhkQ0F4TUM0ME9TNHlOU0JoYlM1d2JtY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMU5qY21WbGJpVXlNRk5vYjNRbE1qQXlNREU1TFRBMUxUQXlKVEl3WVhRbE1qQXhNQzQwT1M0eU5TVXlNR0Z0TG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRPSIsImV4cCI6IjIwMTktMDUtMDlUMDI6MzE6NDEuMDMzWiIsInB1ciI6ImJsb2Jfa2V5In19--decfea40181a968cb84bea07e3eec0c65fc82d7c", "filename"=>"Screen Shot 2019-05-02 at 10.49.25 am"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/purchases" for ::1 at 2019-05-09 12:27:47 +1000
+Processing by OrdersController#purchases as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendering orders/purchases.html.erb within layouts/application
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."buyer_id" = $1 ORDER BY created_at DESC[0m  [["buyer_id", 3]]
+  ↳ app/views/orders/purchases.html.erb:13
+  [1m[36mListing Load (0.3ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/orders/purchases.html.erb:15
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 9], ["record_type", "Listing"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:7
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:7
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/orders/purchases.html.erb:18
+  [1m[36mCACHE Listing Load (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/orders/purchases.html.erb:15
+  [1m[36mCACHE ActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 9], ["record_type", "Listing"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:7
+  [1m[36mCACHE ActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:7
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/orders/purchases.html.erb:18
+  Rendered orders/purchases.html.erb within layouts/application (15.3ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 60ms (Views: 54.3ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSm5kbUZ5YVdGdWRITXZibmMwY2pGS2RqYzBPVk5oYlhwbWQzQjFlRGwyZW1wT0x6Z3lOemN6TVRNMVpqVmpaRFJtTlRNek16RXpNelJrTVRBeVlUZ3lOVFkyT1RGaE16RXhOVGRqWldVM05qUm1aamM1WVRJNE4ySTBaR1V5T1RJd01tRUdPZ1pGVkRvUVpHbHpjRzl6YVhScGIyNUpJZ0dDYVc1c2FXNWxPeUJtYVd4bGJtRnRaVDBpVTJOeVpXVnVJRk5vYjNRZ01qQXhPUzB3TlMwd01pQmhkQ0F4TUM0ME9TNHlOU0JoYlM1d2JtY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMU5qY21WbGJpVXlNRk5vYjNRbE1qQXlNREU1TFRBMUxUQXlKVEl3WVhRbE1qQXhNQzQwT1M0eU5TVXlNR0Z0TG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRPSIsImV4cCI6IjIwMTktMDUtMDlUMDI6MzE6NDEuMDMzWiIsInB1ciI6ImJsb2Jfa2V5In19--decfea40181a968cb84bea07e3eec0c65fc82d7c/Screen%20Shot%202019-05-02%20at%2010.49.25%20am.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Screen+Shot+2019-05-02+at+10.49.25+am.png%22%3B+filename%2A%3DUTF-8%27%27Screen%2520Shot%25202019-05-02%2520at%252010.49.25%2520am.png" for ::1 at 2019-05-09 12:27:47 +1000
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"content_type"=>"image/png", "disposition"=>"inline; filename=\"Screen Shot 2019-05-02 at 10.49.25 am.png\"; filename*=UTF-8''Screen%20Shot%202019-05-02%20at%2010.49.25%20am.png", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSm5kbUZ5YVdGdWRITXZibmMwY2pGS2RqYzBPVk5oYlhwbWQzQjFlRGwyZW1wT0x6Z3lOemN6TVRNMVpqVmpaRFJtTlRNek16RXpNelJrTVRBeVlUZ3lOVFkyT1RGaE16RXhOVGRqWldVM05qUm1aamM1WVRJNE4ySTBaR1V5T1RJd01tRUdPZ1pGVkRvUVpHbHpjRzl6YVhScGIyNUpJZ0dDYVc1c2FXNWxPeUJtYVd4bGJtRnRaVDBpVTJOeVpXVnVJRk5vYjNRZ01qQXhPUzB3TlMwd01pQmhkQ0F4TUM0ME9TNHlOU0JoYlM1d2JtY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMU5qY21WbGJpVXlNRk5vYjNRbE1qQXlNREU1TFRBMUxUQXlKVEl3WVhRbE1qQXhNQzQwT1M0eU5TVXlNR0Z0TG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRPSIsImV4cCI6IjIwMTktMDUtMDlUMDI6MzE6NDEuMDMzWiIsInB1ciI6ImJsb2Jfa2V5In19--decfea40181a968cb84bea07e3eec0c65fc82d7c", "filename"=>"Screen Shot 2019-05-02 at 10.49.25 am"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/purchases" for ::1 at 2019-05-09 12:28:23 +1000
+Processing by OrdersController#purchases as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendering orders/purchases.html.erb within layouts/application
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."buyer_id" = $1 ORDER BY created_at DESC[0m  [["buyer_id", 3]]
+  ↳ app/views/orders/purchases.html.erb:13
+  [1m[36mListing Load (0.3ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/orders/purchases.html.erb:15
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 9], ["record_type", "Listing"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:7
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:7
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/orders/purchases.html.erb:18
+  [1m[36mCACHE Listing Load (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/orders/purchases.html.erb:15
+  [1m[36mCACHE ActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 9], ["record_type", "Listing"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:7
+  [1m[36mCACHE ActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:7
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/orders/purchases.html.erb:18
+  Rendered orders/purchases.html.erb within layouts/application (12.4ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 52ms (Views: 47.3ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/purchases" for ::1 at 2019-05-09 12:28:25 +1000
+Processing by OrdersController#purchases as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendering orders/purchases.html.erb within layouts/application
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."buyer_id" = $1 ORDER BY created_at DESC[0m  [["buyer_id", 3]]
+  ↳ app/views/orders/purchases.html.erb:13
+  [1m[36mListing Load (0.5ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/orders/purchases.html.erb:15
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 9], ["record_type", "Listing"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:7
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:7
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/orders/purchases.html.erb:18
+  [1m[36mCACHE Listing Load (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/orders/purchases.html.erb:15
+  [1m[36mCACHE ActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 9], ["record_type", "Listing"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:7
+  [1m[36mCACHE ActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:7
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/orders/purchases.html.erb:18
+  Rendered orders/purchases.html.erb within layouts/application (18.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 149ms (Views: 143.1ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/rails/info/routes" for ::1 at 2019-05-09 12:31:56 +1000
+Processing by Rails::InfoController#routes as HTML
+  Rendering /usr/local/lib/ruby/gems/2.6.0/gems/railties-5.2.3/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /usr/local/lib/ruby/gems/2.6.0/gems/actionpack-5.2.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb [42 times] (11.1ms)
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/actionpack-5.2.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /usr/local/lib/ruby/gems/2.6.0/gems/railties-5.2.3/lib/rails/templates/rails/info/routes.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-05-09 12:33:39 +1000
+Processing by ListingsController#index as HTML
+  Rendering listings/index.html.erb within layouts/application
+  [1m[36mListing Load (0.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings" ORDER BY created_at DESC[0m
+  ↳ app/views/listings/index.html.erb:8
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 9], ["record_type", "Listing"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:11
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:11
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/listings/index.html.erb:16
+  [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 8], ["record_type", "Listing"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:11
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:11
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/listings/index.html.erb:16
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Listing"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:11
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:11
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/listings/index.html.erb:16
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Listing"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:11
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:11
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/listings/index.html.erb:16
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Listing"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:11
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/listing.rb:11
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/listings/index.html.erb:16
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/listings/index.html.erb:26
+  Rendered listings/index.html.erb within layouts/application (38.9ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 97ms (Views: 88.7ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c1bdb13eb84266174af1f1a7cb881bac084cdfd9/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9MY21WemFYcGxTU0lNTWpBd2VESXdNQVk2QmtWVSIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--971d9dbe1dc853f07e13cbaecedcaa5183f7e327/Screen%20Shot%202019-05-02%20at%2010.49.25%20am.png" for ::1 at 2019-05-09 12:33:39 +1000
+Started GET "/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--878863da7027b490d90b6cff82def0bdc893e881/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9MY21WemFYcGxTU0lNTWpBd2VESXdNQVk2QmtWVSIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--971d9dbe1dc853f07e13cbaecedcaa5183f7e327/Screen%20Shot%202019-05-02%20at%2010.49.25%20am.png" for ::1 at 2019-05-09 12:33:39 +1000
+Processing by ActiveStorage::RepresentationsController#show as PNG
+  Parameters: {"signed_blob_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c1bdb13eb84266174af1f1a7cb881bac084cdfd9", "variation_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9MY21WemFYcGxTU0lNTWpBd2VESXdNQVk2QmtWVSIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--971d9dbe1dc853f07e13cbaecedcaa5183f7e327", "filename"=>"Screen Shot 2019-05-02 at 10.49.25 am"}
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (0.1ms) [0m[34mChecked if file exists at key: variants/nw4r1Jv749Samzfwpux9vzjN/6ae8480de2047c9892935359b5b5c881a8238de5a5c2f35dbfb75757aa3a54ac (yes)[0m
+[36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: variants/nw4r1Jv749Samzfwpux9vzjN/6ae8480de2047c9892935359b5b5c881a8238de5a5c2f35dbfb75757aa3a54ac (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSm5kbUZ5YVdGdWRITXZibmMwY2pGS2RqYzBPVk5oYlhwbWQzQjFlRGwyZW1wT0x6WmhaVGcwT0RCa1pUSXdORGRqT1RnNU1qa3pOVE0xT1dJMVlqVmpPRGd4WVRneU16aGtaVFZoTldNeVpqTTFaR0ptWWpjMU56VTNZV0V6WVRVMFlXTUdPZ1pGVkRvUVpHbHpjRzl6YVhScGIyNUpJZ0dDYVc1c2FXNWxPeUJtYVd4bGJtRnRaVDBpVTJOeVpXVnVJRk5vYjNRZ01qQXhPUzB3TlMwd01pQmhkQ0F4TUM0ME9TNHlOU0JoYlM1d2JtY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMU5qY21WbGJpVXlNRk5vYjNRbE1qQXlNREU1TFRBMUxUQXlKVEl3WVhRbE1qQXhNQzQwT1M0eU5TVXlNR0Z0TG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRPSIsImV4cCI6IjIwMTktMDUtMDlUMDI6Mzg6NDAuMDAyWiIsInB1ciI6ImJsb2Jfa2V5In19--32a49940e70c5d0b36b883568a1d6e98f01b5163/Screen%20Shot%202019-05-02%20at%2010.49.25%20am.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Screen+Shot+2019-05-02+at+10.49.25+am.png%22%3B+filename%2A%3DUTF-8%27%27Screen%2520Shot%25202019-05-02%2520at%252010.49.25%2520am.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSm5kbUZ5YVdGdWRITXZibmMwY2pGS2RqYzBPVk5oYlhwbWQzQjFlRGwyZW1wT0x6WmhaVGcwT0RCa1pUSXdORGRqT1RnNU1qa3pOVE0xT1dJMVlqVmpPRGd4WVRneU16aGtaVFZoTldNeVpqTTFaR0ptWWpjMU56VTNZV0V6WVRVMFlXTUdPZ1pGVkRvUVpHbHpjRzl6YVhScGIyNUpJZ0dDYVc1c2FXNWxPeUJtYVd4bGJtRnRaVDBpVTJOeVpXVnVJRk5vYjNRZ01qQXhPUzB3TlMwd01pQmhkQ0F4TUM0ME9TNHlOU0JoYlM1d2JtY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMU5qY21WbGJpVXlNRk5vYjNRbE1qQXlNREU1TFRBMUxUQXlKVEl3WVhRbE1qQXhNQzQwT1M0eU5TVXlNR0Z0TG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRPSIsImV4cCI6IjIwMTktMDUtMDlUMDI6Mzg6NDAuMDAyWiIsInB1ciI6ImJsb2Jfa2V5In19--32a49940e70c5d0b36b883568a1d6e98f01b5163/Screen%20Shot%202019-05-02%20at%2010.49.25%20am.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Screen+Shot+2019-05-02+at+10.49.25+am.png%22%3B+filename%2A%3DUTF-8%27%27Screen%2520Shot%25202019-05-02%2520at%252010.49.25%2520am.png
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSm5kbUZ5YVdGdWRITXZibmMwY2pGS2RqYzBPVk5oYlhwbWQzQjFlRGwyZW1wT0x6WmhaVGcwT0RCa1pUSXdORGRqT1RnNU1qa3pOVE0xT1dJMVlqVmpPRGd4WVRneU16aGtaVFZoTldNeVpqTTFaR0ptWWpjMU56VTNZV0V6WVRVMFlXTUdPZ1pGVkRvUVpHbHpjRzl6YVhScGIyNUpJZ0dDYVc1c2FXNWxPeUJtYVd4bGJtRnRaVDBpVTJOeVpXVnVJRk5vYjNRZ01qQXhPUzB3TlMwd01pQmhkQ0F4TUM0ME9TNHlOU0JoYlM1d2JtY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMU5qY21WbGJpVXlNRk5vYjNRbE1qQXlNREU1TFRBMUxUQXlKVEl3WVhRbE1qQXhNQzQwT1M0eU5TVXlNR0Z0TG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRPSIsImV4cCI6IjIwMTktMDUtMDlUMDI6Mzg6NDAuMDAyWiIsInB1ciI6ImJsb2Jfa2V5In19--32a49940e70c5d0b36b883568a1d6e98f01b5163/Screen%20Shot%202019-05-02%20at%2010.49.25%20am.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Screen+Shot+2019-05-02+at+10.49.25+am.png%22%3B+filename%2A%3DUTF-8%27%27Screen%2520Shot%25202019-05-02%2520at%252010.49.25%2520am.png" for ::1 at 2019-05-09 12:33:40 +1000
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"content_type"=>"image/png", "disposition"=>"inline; filename=\"Screen Shot 2019-05-02 at 10.49.25 am.png\"; filename*=UTF-8''Screen%20Shot%202019-05-02%20at%2010.49.25%20am.png", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSm5kbUZ5YVdGdWRITXZibmMwY2pGS2RqYzBPVk5oYlhwbWQzQjFlRGwyZW1wT0x6WmhaVGcwT0RCa1pUSXdORGRqT1RnNU1qa3pOVE0xT1dJMVlqVmpPRGd4WVRneU16aGtaVFZoTldNeVpqTTFaR0ptWWpjMU56VTNZV0V6WVRVMFlXTUdPZ1pGVkRvUVpHbHpjRzl6YVhScGIyNUpJZ0dDYVc1c2FXNWxPeUJtYVd4bGJtRnRaVDBpVTJOeVpXVnVJRk5vYjNRZ01qQXhPUzB3TlMwd01pQmhkQ0F4TUM0ME9TNHlOU0JoYlM1d2JtY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMU5qY21WbGJpVXlNRk5vYjNRbE1qQXlNREU1TFRBMUxUQXlKVEl3WVhRbE1qQXhNQzQwT1M0eU5TVXlNR0Z0TG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRPSIsImV4cCI6IjIwMTktMDUtMDlUMDI6Mzg6NDAuMDAyWiIsInB1ciI6ImJsb2Jfa2V5In19--32a49940e70c5d0b36b883568a1d6e98f01b5163", "filename"=>"Screen Shot 2019-05-02 at 10.49.25 am"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--18961efd80064f058d65eb8ca6e7237566ffc83c/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9MY21WemFYcGxTU0lNTWpBd2VESXdNQVk2QmtWVSIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--971d9dbe1dc853f07e13cbaecedcaa5183f7e327/Screen%20Shot%202019-05-02%20at%2010.49.35%20am.png" for ::1 at 2019-05-09 12:33:40 +1000
+Processing by ActiveStorage::RepresentationsController#show as PNG
+  Parameters: {"signed_blob_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--18961efd80064f058d65eb8ca6e7237566ffc83c", "variation_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9MY21WemFYcGxTU0lNTWpBd2VESXdNQVk2QmtWVSIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--971d9dbe1dc853f07e13cbaecedcaa5183f7e327", "filename"=>"Screen Shot 2019-05-02 at 10.49.35 am"}
+  [1m[36mActiveStorage::Blob Load (0.9ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (0.5ms) [0m[34mChecked if file exists at key: variants/vmhTXUV3gr3nUeSJdvBjnYkq/6ae8480de2047c9892935359b5b5c881a8238de5a5c2f35dbfb75757aa3a54ac (yes)[0m
+Processing by ActiveStorage::RepresentationsController#show as PNG
+[36m  Disk Storage (0.7ms) [0m[34mGenerated URL for file at key: variants/vmhTXUV3gr3nUeSJdvBjnYkq/6ae8480de2047c9892935359b5b5c881a8238de5a5c2f35dbfb75757aa3a54ac (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSm5kbUZ5YVdGdWRITXZkbTFvVkZoVlZqTm5jak51VldWVFNtUjJRbXB1V1d0eEx6WmhaVGcwT0RCa1pUSXdORGRqT1RnNU1qa3pOVE0xT1dJMVlqVmpPRGd4WVRneU16aGtaVFZoTldNeVpqTTFaR0ptWWpjMU56VTNZV0V6WVRVMFlXTUdPZ1pGVkRvUVpHbHpjRzl6YVhScGIyNUpJZ0dDYVc1c2FXNWxPeUJtYVd4bGJtRnRaVDBpVTJOeVpXVnVJRk5vYjNRZ01qQXhPUzB3TlMwd01pQmhkQ0F4TUM0ME9TNHpOU0JoYlM1d2JtY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMU5qY21WbGJpVXlNRk5vYjNRbE1qQXlNREU1TFRBMUxUQXlKVEl3WVhRbE1qQXhNQzQwT1M0ek5TVXlNR0Z0TG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRPSIsImV4cCI6IjIwMTktMDUtMDlUMDI6Mzg6NDAuMDI5WiIsInB1ciI6ImJsb2Jfa2V5In19--374691e66add15c0d23582a22a8bd08032312191/Screen%20Shot%202019-05-02%20at%2010.49.35%20am.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Screen+Shot+2019-05-02+at+10.49.35+am.png%22%3B+filename%2A%3DUTF-8%27%27Screen%2520Shot%25202019-05-02%2520at%252010.49.35%2520am.png)[0m
+  Parameters: {"signed_blob_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--878863da7027b490d90b6cff82def0bdc893e881", "variation_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9MY21WemFYcGxTU0lNTWpBd2VESXdNQVk2QmtWVSIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--971d9dbe1dc853f07e13cbaecedcaa5183f7e327", "filename"=>"Screen Shot 2019-05-02 at 10.49.25 am"}
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSm5kbUZ5YVdGdWRITXZkbTFvVkZoVlZqTm5jak51VldWVFNtUjJRbXB1V1d0eEx6WmhaVGcwT0RCa1pUSXdORGRqT1RnNU1qa3pOVE0xT1dJMVlqVmpPRGd4WVRneU16aGtaVFZoTldNeVpqTTFaR0ptWWpjMU56VTNZV0V6WVRVMFlXTUdPZ1pGVkRvUVpHbHpjRzl6YVhScGIyNUpJZ0dDYVc1c2FXNWxPeUJtYVd4bGJtRnRaVDBpVTJOeVpXVnVJRk5vYjNRZ01qQXhPUzB3TlMwd01pQmhkQ0F4TUM0ME9TNHpOU0JoYlM1d2JtY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMU5qY21WbGJpVXlNRk5vYjNRbE1qQXlNREU1TFRBMUxUQXlKVEl3WVhRbE1qQXhNQzQwT1M0ek5TVXlNR0Z0TG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRPSIsImV4cCI6IjIwMTktMDUtMDlUMDI6Mzg6NDAuMDI5WiIsInB1ciI6ImJsb2Jfa2V5In19--374691e66add15c0d23582a22a8bd08032312191/Screen%20Shot%202019-05-02%20at%2010.49.35%20am.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Screen+Shot+2019-05-02+at+10.49.35+am.png%22%3B+filename%2A%3DUTF-8%27%27Screen%2520Shot%25202019-05-02%2520at%252010.49.35%2520am.png
+Completed 302 Found in 8ms (ActiveRecord: 0.9ms)
+
+
+  [1m[36mActiveStorage::Blob Load (1.0ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (0.1ms) [0m[34mChecked if file exists at key: variants/tnjYUGoAgtKC57yaWhHsdBVM/6ae8480de2047c9892935359b5b5c881a8238de5a5c2f35dbfb75757aa3a54ac (yes)[0m
+[36m  Disk Storage (0.4ms) [0m[34mGenerated URL for file at key: variants/tnjYUGoAgtKC57yaWhHsdBVM/6ae8480de2047c9892935359b5b5c881a8238de5a5c2f35dbfb75757aa3a54ac (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSm5kbUZ5YVdGdWRITXZkRzVxV1ZWSGIwRm5kRXRETlRkNVlWZG9TSE5rUWxaTkx6WmhaVGcwT0RCa1pUSXdORGRqT1RnNU1qa3pOVE0xT1dJMVlqVmpPRGd4WVRneU16aGtaVFZoTldNeVpqTTFaR0ptWWpjMU56VTNZV0V6WVRVMFlXTUdPZ1pGVkRvUVpHbHpjRzl6YVhScGIyNUpJZ0dDYVc1c2FXNWxPeUJtYVd4bGJtRnRaVDBpVTJOeVpXVnVJRk5vYjNRZ01qQXhPUzB3TlMwd01pQmhkQ0F4TUM0ME9TNHlOU0JoYlM1d2JtY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMU5qY21WbGJpVXlNRk5vYjNRbE1qQXlNREU1TFRBMUxUQXlKVEl3WVhRbE1qQXhNQzQwT1M0eU5TVXlNR0Z0TG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRPSIsImV4cCI6IjIwMTktMDUtMDlUMDI6Mzg6NDAuMDM2WiIsInB1ciI6ImJsb2Jfa2V5In19--85ac051870b02530fb55b0c2b73ac63d21f1eef3/Screen%20Shot%202019-05-02%20at%2010.49.25%20am.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Screen+Shot+2019-05-02+at+10.49.25+am.png%22%3B+filename%2A%3DUTF-8%27%27Screen%2520Shot%25202019-05-02%2520at%252010.49.25%2520am.png)[0m
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSm5kbUZ5YVdGdWRITXZkbTFvVkZoVlZqTm5jak51VldWVFNtUjJRbXB1V1d0eEx6WmhaVGcwT0RCa1pUSXdORGRqT1RnNU1qa3pOVE0xT1dJMVlqVmpPRGd4WVRneU16aGtaVFZoTldNeVpqTTFaR0ptWWpjMU56VTNZV0V6WVRVMFlXTUdPZ1pGVkRvUVpHbHpjRzl6YVhScGIyNUpJZ0dDYVc1c2FXNWxPeUJtYVd4bGJtRnRaVDBpVTJOeVpXVnVJRk5vYjNRZ01qQXhPUzB3TlMwd01pQmhkQ0F4TUM0ME9TNHpOU0JoYlM1d2JtY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMU5qY21WbGJpVXlNRk5vYjNRbE1qQXlNREU1TFRBMUxUQXlKVEl3WVhRbE1qQXhNQzQwT1M0ek5TVXlNR0Z0TG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRPSIsImV4cCI6IjIwMTktMDUtMDlUMDI6Mzg6NDAuMDI5WiIsInB1ciI6ImJsb2Jfa2V5In19--374691e66add15c0d23582a22a8bd08032312191/Screen%20Shot%202019-05-02%20at%2010.49.35%20am.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Screen+Shot+2019-05-02+at+10.49.35+am.png%22%3B+filename%2A%3DUTF-8%27%27Screen%2520Shot%25202019-05-02%2520at%252010.49.35%2520am.png" for ::1 at 2019-05-09 12:33:40 +1000
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSm5kbUZ5YVdGdWRITXZkRzVxV1ZWSGIwRm5kRXRETlRkNVlWZG9TSE5rUWxaTkx6WmhaVGcwT0RCa1pUSXdORGRqT1RnNU1qa3pOVE0xT1dJMVlqVmpPRGd4WVRneU16aGtaVFZoTldNeVpqTTFaR0ptWWpjMU56VTNZV0V6WVRVMFlXTUdPZ1pGVkRvUVpHbHpjRzl6YVhScGIyNUpJZ0dDYVc1c2FXNWxPeUJtYVd4bGJtRnRaVDBpVTJOeVpXVnVJRk5vYjNRZ01qQXhPUzB3TlMwd01pQmhkQ0F4TUM0ME9TNHlOU0JoYlM1d2JtY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMU5qY21WbGJpVXlNRk5vYjNRbE1qQXlNREU1TFRBMUxUQXlKVEl3WVhRbE1qQXhNQzQwT1M0eU5TVXlNR0Z0TG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRPSIsImV4cCI6IjIwMTktMDUtMDlUMDI6Mzg6NDAuMDM2WiIsInB1ciI6ImJsb2Jfa2V5In19--85ac051870b02530fb55b0c2b73ac63d21f1eef3/Screen%20Shot%202019-05-02%20at%2010.49.25%20am.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Screen+Shot+2019-05-02+at+10.49.25+am.png%22%3B+filename%2A%3DUTF-8%27%27Screen%2520Shot%25202019-05-02%2520at%252010.49.25%2520am.png
+Completed 302 Found in 7ms (ActiveRecord: 1.5ms)
+
+
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"content_type"=>"image/png", "disposition"=>"inline; filename=\"Screen Shot 2019-05-02 at 10.49.35 am.png\"; filename*=UTF-8''Screen%20Shot%202019-05-02%20at%2010.49.35%20am.png", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSm5kbUZ5YVdGdWRITXZkbTFvVkZoVlZqTm5jak51VldWVFNtUjJRbXB1V1d0eEx6WmhaVGcwT0RCa1pUSXdORGRqT1RnNU1qa3pOVE0xT1dJMVlqVmpPRGd4WVRneU16aGtaVFZoTldNeVpqTTFaR0ptWWpjMU56VTNZV0V6WVRVMFlXTUdPZ1pGVkRvUVpHbHpjRzl6YVhScGIyNUpJZ0dDYVc1c2FXNWxPeUJtYVd4bGJtRnRaVDBpVTJOeVpXVnVJRk5vYjNRZ01qQXhPUzB3TlMwd01pQmhkQ0F4TUM0ME9TNHpOU0JoYlM1d2JtY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMU5qY21WbGJpVXlNRk5vYjNRbE1qQXlNREU1TFRBMUxUQXlKVEl3WVhRbE1qQXhNQzQwT1M0ek5TVXlNR0Z0TG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRPSIsImV4cCI6IjIwMTktMDUtMDlUMDI6Mzg6NDAuMDI5WiIsInB1ciI6ImJsb2Jfa2V5In19--374691e66add15c0d23582a22a8bd08032312191", "filename"=>"Screen Shot 2019-05-02 at 10.49.35 am"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSm5kbUZ5YVdGdWRITXZkRzVxV1ZWSGIwRm5kRXRETlRkNVlWZG9TSE5rUWxaTkx6WmhaVGcwT0RCa1pUSXdORGRqT1RnNU1qa3pOVE0xT1dJMVlqVmpPRGd4WVRneU16aGtaVFZoTldNeVpqTTFaR0ptWWpjMU56VTNZV0V6WVRVMFlXTUdPZ1pGVkRvUVpHbHpjRzl6YVhScGIyNUpJZ0dDYVc1c2FXNWxPeUJtYVd4bGJtRnRaVDBpVTJOeVpXVnVJRk5vYjNRZ01qQXhPUzB3TlMwd01pQmhkQ0F4TUM0ME9TNHlOU0JoYlM1d2JtY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMU5qY21WbGJpVXlNRk5vYjNRbE1qQXlNREU1TFRBMUxUQXlKVEl3WVhRbE1qQXhNQzQwT1M0eU5TVXlNR0Z0TG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRPSIsImV4cCI6IjIwMTktMDUtMDlUMDI6Mzg6NDAuMDM2WiIsInB1ciI6ImJsb2Jfa2V5In19--85ac051870b02530fb55b0c2b73ac63d21f1eef3/Screen%20Shot%202019-05-02%20at%2010.49.25%20am.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Screen+Shot+2019-05-02+at+10.49.25+am.png%22%3B+filename%2A%3DUTF-8%27%27Screen%2520Shot%25202019-05-02%2520at%252010.49.25%2520am.png" for ::1 at 2019-05-09 12:33:40 +1000
+Started GET "/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--890288187b26184ce356283951e91b305f77e22f/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9MY21WemFYcGxTU0lNTWpBd2VESXdNQVk2QmtWVSIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--971d9dbe1dc853f07e13cbaecedcaa5183f7e327/Screen%20Shot%202019-05-02%20at%2010.49.09%20am.png" for ::1 at 2019-05-09 12:33:40 +1000
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"content_type"=>"image/png", "disposition"=>"inline; filename=\"Screen Shot 2019-05-02 at 10.49.25 am.png\"; filename*=UTF-8''Screen%20Shot%202019-05-02%20at%2010.49.25%20am.png", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSm5kbUZ5YVdGdWRITXZkRzVxV1ZWSGIwRm5kRXRETlRkNVlWZG9TSE5rUWxaTkx6WmhaVGcwT0RCa1pUSXdORGRqT1RnNU1qa3pOVE0xT1dJMVlqVmpPRGd4WVRneU16aGtaVFZoTldNeVpqTTFaR0ptWWpjMU56VTNZV0V6WVRVMFlXTUdPZ1pGVkRvUVpHbHpjRzl6YVhScGIyNUpJZ0dDYVc1c2FXNWxPeUJtYVd4bGJtRnRaVDBpVTJOeVpXVnVJRk5vYjNRZ01qQXhPUzB3TlMwd01pQmhkQ0F4TUM0ME9TNHlOU0JoYlM1d2JtY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMU5qY21WbGJpVXlNRk5vYjNRbE1qQXlNREU1TFRBMUxUQXlKVEl3WVhRbE1qQXhNQzQwT1M0eU5TVXlNR0Z0TG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRPSIsImV4cCI6IjIwMTktMDUtMDlUMDI6Mzg6NDAuMDM2WiIsInB1ciI6ImJsb2Jfa2V5In19--85ac051870b02530fb55b0c2b73ac63d21f1eef3", "filename"=>"Screen Shot 2019-05-02 at 10.49.25 am"}
+Started GET "/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f13fb1c5b25e3f2943634c764b0cc3f73ab2d70e/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9MY21WemFYcGxTU0lNTWpBd2VESXdNQVk2QmtWVSIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--971d9dbe1dc853f07e13cbaecedcaa5183f7e327/Screen%20Shot%202019-05-02%20at%2010.49.25%20am.png" for ::1 at 2019-05-09 12:33:40 +1000
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms)
+
+
+Processing by ActiveStorage::RepresentationsController#show as PNG
+  Parameters: {"signed_blob_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--890288187b26184ce356283951e91b305f77e22f", "variation_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9MY21WemFYcGxTU0lNTWpBd2VESXdNQVk2QmtWVSIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--971d9dbe1dc853f07e13cbaecedcaa5183f7e327", "filename"=>"Screen Shot 2019-05-02 at 10.49.09 am"}
+  [1m[36mActiveStorage::Blob Load (1.8ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (0.1ms) [0m[34mChecked if file exists at key: variants/2Wj97NVAx5hbmzQZ564DXuCw/6ae8480de2047c9892935359b5b5c881a8238de5a5c2f35dbfb75757aa3a54ac (yes)[0m
+[36m  Disk Storage (0.7ms) [0m[34mGenerated URL for file at key: variants/2Wj97NVAx5hbmzQZ564DXuCw/6ae8480de2047c9892935359b5b5c881a8238de5a5c2f35dbfb75757aa3a54ac (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSm5kbUZ5YVdGdWRITXZNbGRxT1RkT1ZrRjROV2hpYlhwUldqVTJORVJZZFVOM0x6WmhaVGcwT0RCa1pUSXdORGRqT1RnNU1qa3pOVE0xT1dJMVlqVmpPRGd4WVRneU16aGtaVFZoTldNeVpqTTFaR0ptWWpjMU56VTNZV0V6WVRVMFlXTUdPZ1pGVkRvUVpHbHpjRzl6YVhScGIyNUpJZ0dDYVc1c2FXNWxPeUJtYVd4bGJtRnRaVDBpVTJOeVpXVnVJRk5vYjNRZ01qQXhPUzB3TlMwd01pQmhkQ0F4TUM0ME9TNHdPU0JoYlM1d2JtY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMU5qY21WbGJpVXlNRk5vYjNRbE1qQXlNREU1TFRBMUxUQXlKVEl3WVhRbE1qQXhNQzQwT1M0d09TVXlNR0Z0TG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRPSIsImV4cCI6IjIwMTktMDUtMDlUMDI6Mzg6NDAuMDYwWiIsInB1ciI6ImJsb2Jfa2V5In19--44d671a606c6307ea798d4cfed05f65e2fb7f3df/Screen%20Shot%202019-05-02%20at%2010.49.09%20am.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Screen+Shot+2019-05-02+at+10.49.09+am.png%22%3B+filename%2A%3DUTF-8%27%27Screen%2520Shot%25202019-05-02%2520at%252010.49.09%2520am.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSm5kbUZ5YVdGdWRITXZNbGRxT1RkT1ZrRjROV2hpYlhwUldqVTJORVJZZFVOM0x6WmhaVGcwT0RCa1pUSXdORGRqT1RnNU1qa3pOVE0xT1dJMVlqVmpPRGd4WVRneU16aGtaVFZoTldNeVpqTTFaR0ptWWpjMU56VTNZV0V6WVRVMFlXTUdPZ1pGVkRvUVpHbHpjRzl6YVhScGIyNUpJZ0dDYVc1c2FXNWxPeUJtYVd4bGJtRnRaVDBpVTJOeVpXVnVJRk5vYjNRZ01qQXhPUzB3TlMwd01pQmhkQ0F4TUM0ME9TNHdPU0JoYlM1d2JtY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMU5qY21WbGJpVXlNRk5vYjNRbE1qQXlNREU1TFRBMUxUQXlKVEl3WVhRbE1qQXhNQzQwT1M0d09TVXlNR0Z0TG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRPSIsImV4cCI6IjIwMTktMDUtMDlUMDI6Mzg6NDAuMDYwWiIsInB1ciI6ImJsb2Jfa2V5In19--44d671a606c6307ea798d4cfed05f65e2fb7f3df/Screen%20Shot%202019-05-02%20at%2010.49.09%20am.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Screen+Shot+2019-05-02+at+10.49.09+am.png%22%3B+filename%2A%3DUTF-8%27%27Screen%2520Shot%25202019-05-02%2520at%252010.49.09%2520am.png
+Completed 302 Found in 7ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSm5kbUZ5YVdGdWRITXZNbGRxT1RkT1ZrRjROV2hpYlhwUldqVTJORVJZZFVOM0x6WmhaVGcwT0RCa1pUSXdORGRqT1RnNU1qa3pOVE0xT1dJMVlqVmpPRGd4WVRneU16aGtaVFZoTldNeVpqTTFaR0ptWWpjMU56VTNZV0V6WVRVMFlXTUdPZ1pGVkRvUVpHbHpjRzl6YVhScGIyNUpJZ0dDYVc1c2FXNWxPeUJtYVd4bGJtRnRaVDBpVTJOeVpXVnVJRk5vYjNRZ01qQXhPUzB3TlMwd01pQmhkQ0F4TUM0ME9TNHdPU0JoYlM1d2JtY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMU5qY21WbGJpVXlNRk5vYjNRbE1qQXlNREU1TFRBMUxUQXlKVEl3WVhRbE1qQXhNQzQwT1M0d09TVXlNR0Z0TG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRPSIsImV4cCI6IjIwMTktMDUtMDlUMDI6Mzg6NDAuMDYwWiIsInB1ciI6ImJsb2Jfa2V5In19--44d671a606c6307ea798d4cfed05f65e2fb7f3df/Screen%20Shot%202019-05-02%20at%2010.49.09%20am.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Screen+Shot+2019-05-02+at+10.49.09+am.png%22%3B+filename%2A%3DUTF-8%27%27Screen%2520Shot%25202019-05-02%2520at%252010.49.09%2520am.png" for ::1 at 2019-05-09 12:33:40 +1000
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"content_type"=>"image/png", "disposition"=>"inline; filename=\"Screen Shot 2019-05-02 at 10.49.09 am.png\"; filename*=UTF-8''Screen%20Shot%202019-05-02%20at%2010.49.09%20am.png", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSm5kbUZ5YVdGdWRITXZNbGRxT1RkT1ZrRjROV2hpYlhwUldqVTJORVJZZFVOM0x6WmhaVGcwT0RCa1pUSXdORGRqT1RnNU1qa3pOVE0xT1dJMVlqVmpPRGd4WVRneU16aGtaVFZoTldNeVpqTTFaR0ptWWpjMU56VTNZV0V6WVRVMFlXTUdPZ1pGVkRvUVpHbHpjRzl6YVhScGIyNUpJZ0dDYVc1c2FXNWxPeUJtYVd4bGJtRnRaVDBpVTJOeVpXVnVJRk5vYjNRZ01qQXhPUzB3TlMwd01pQmhkQ0F4TUM0ME9TNHdPU0JoYlM1d2JtY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMU5qY21WbGJpVXlNRk5vYjNRbE1qQXlNREU1TFRBMUxUQXlKVEl3WVhRbE1qQXhNQzQwT1M0d09TVXlNR0Z0TG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRPSIsImV4cCI6IjIwMTktMDUtMDlUMDI6Mzg6NDAuMDYwWiIsInB1ciI6ImJsb2Jfa2V5In19--44d671a606c6307ea798d4cfed05f65e2fb7f3df", "filename"=>"Screen Shot 2019-05-02 at 10.49.09 am"}
+Completed 200 OK in 2ms (ActiveRecord: 0.0ms)
+
+
+Processing by ActiveStorage::RepresentationsController#show as PNG
+  Parameters: {"signed_blob_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f13fb1c5b25e3f2943634c764b0cc3f73ab2d70e", "variation_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9MY21WemFYcGxTU0lNTWpBd2VESXdNQVk2QmtWVSIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--971d9dbe1dc853f07e13cbaecedcaa5183f7e327", "filename"=>"Screen Shot 2019-05-02 at 10.49.25 am"}
+  [1m[36mActiveStorage::Blob Load (1.0ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ /usr/local/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (0.1ms) [0m[34mChecked if file exists at key: variants/dqj1CktgHPmWP46n9KXf9Dx5/6ae8480de2047c9892935359b5b5c881a8238de5a5c2f35dbfb75757aa3a54ac (yes)[0m
+[36m  Disk Storage (0.7ms) [0m[34mGenerated URL for file at key: variants/dqj1CktgHPmWP46n9KXf9Dx5/6ae8480de2047c9892935359b5b5c881a8238de5a5c2f35dbfb75757aa3a54ac (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSm5kbUZ5YVdGdWRITXZaSEZxTVVOcmRHZElVRzFYVURRMmJqbExXR1k1UkhnMUx6WmhaVGcwT0RCa1pUSXdORGRqT1RnNU1qa3pOVE0xT1dJMVlqVmpPRGd4WVRneU16aGtaVFZoTldNeVpqTTFaR0ptWWpjMU56VTNZV0V6WVRVMFlXTUdPZ1pGVkRvUVpHbHpjRzl6YVhScGIyNUpJZ0dDYVc1c2FXNWxPeUJtYVd4bGJtRnRaVDBpVTJOeVpXVnVJRk5vYjNRZ01qQXhPUzB3TlMwd01pQmhkQ0F4TUM0ME9TNHlOU0JoYlM1d2JtY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMU5qY21WbGJpVXlNRk5vYjNRbE1qQXlNREU1TFRBMUxUQXlKVEl3WVhRbE1qQXhNQzQwT1M0eU5TVXlNR0Z0TG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRPSIsImV4cCI6IjIwMTktMDUtMDlUMDI6Mzg6NDAuMDkxWiIsInB1ciI6ImJsb2Jfa2V5In19--f7772eb00a88bfdeff382c7f18157631b772d5ed/Screen%20Shot%202019-05-02%20at%2010.49.25%20am.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Screen+Shot+2019-05-02+at+10.49.25+am.png%22%3B+filename%2A%3DUTF-8%27%27Screen%2520Shot%25202019-05-02%2520at%252010.49.25%2520am.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSm5kbUZ5YVdGdWRITXZaSEZxTVVOcmRHZElVRzFYVURRMmJqbExXR1k1UkhnMUx6WmhaVGcwT0RCa1pUSXdORGRqT1RnNU1qa3pOVE0xT1dJMVlqVmpPRGd4WVRneU16aGtaVFZoTldNeVpqTTFaR0ptWWpjMU56VTNZV0V6WVRVMFlXTUdPZ1pGVkRvUVpHbHpjRzl6YVhScGIyNUpJZ0dDYVc1c2FXNWxPeUJtYVd4bGJtRnRaVDBpVTJOeVpXVnVJRk5vYjNRZ01qQXhPUzB3TlMwd01pQmhkQ0F4TUM0ME9TNHlOU0JoYlM1d2JtY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMU5qY21WbGJpVXlNRk5vYjNRbE1qQXlNREU1TFRBMUxUQXlKVEl3WVhRbE1qQXhNQzQwT1M0eU5TVXlNR0Z0TG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRPSIsImV4cCI6IjIwMTktMDUtMDlUMDI6Mzg6NDAuMDkxWiIsInB1ciI6ImJsb2Jfa2V5In19--f7772eb00a88bfdeff382c7f18157631b772d5ed/Screen%20Shot%202019-05-02%20at%2010.49.25%20am.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Screen+Shot+2019-05-02+at+10.49.25+am.png%22%3B+filename%2A%3DUTF-8%27%27Screen%2520Shot%25202019-05-02%2520at%252010.49.25%2520am.png
+Completed 302 Found in 10ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSm5kbUZ5YVdGdWRITXZaSEZxTVVOcmRHZElVRzFYVURRMmJqbExXR1k1UkhnMUx6WmhaVGcwT0RCa1pUSXdORGRqT1RnNU1qa3pOVE0xT1dJMVlqVmpPRGd4WVRneU16aGtaVFZoTldNeVpqTTFaR0ptWWpjMU56VTNZV0V6WVRVMFlXTUdPZ1pGVkRvUVpHbHpjRzl6YVhScGIyNUpJZ0dDYVc1c2FXNWxPeUJtYVd4bGJtRnRaVDBpVTJOeVpXVnVJRk5vYjNRZ01qQXhPUzB3TlMwd01pQmhkQ0F4TUM0ME9TNHlOU0JoYlM1d2JtY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMU5qY21WbGJpVXlNRk5vYjNRbE1qQXlNREU1TFRBMUxUQXlKVEl3WVhRbE1qQXhNQzQwT1M0eU5TVXlNR0Z0TG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRPSIsImV4cCI6IjIwMTktMDUtMDlUMDI6Mzg6NDAuMDkxWiIsInB1ciI6ImJsb2Jfa2V5In19--f7772eb00a88bfdeff382c7f18157631b772d5ed/Screen%20Shot%202019-05-02%20at%2010.49.25%20am.png?content_type=image%2Fpng&disposition=inline%3B+filename%3D%22Screen+Shot+2019-05-02+at+10.49.25+am.png%22%3B+filename%2A%3DUTF-8%27%27Screen%2520Shot%25202019-05-02%2520at%252010.49.25%2520am.png" for ::1 at 2019-05-09 12:33:40 +1000
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"content_type"=>"image/png", "disposition"=>"inline; filename=\"Screen Shot 2019-05-02 at 10.49.25 am.png\"; filename*=UTF-8''Screen%20Shot%202019-05-02%20at%2010.49.25%20am.png", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSm5kbUZ5YVdGdWRITXZaSEZxTVVOcmRHZElVRzFYVURRMmJqbExXR1k1UkhnMUx6WmhaVGcwT0RCa1pUSXdORGRqT1RnNU1qa3pOVE0xT1dJMVlqVmpPRGd4WVRneU16aGtaVFZoTldNeVpqTTFaR0ptWWpjMU56VTNZV0V6WVRVMFlXTUdPZ1pGVkRvUVpHbHpjRzl6YVhScGIyNUpJZ0dDYVc1c2FXNWxPeUJtYVd4bGJtRnRaVDBpVTJOeVpXVnVJRk5vYjNRZ01qQXhPUzB3TlMwd01pQmhkQ0F4TUM0ME9TNHlOU0JoYlM1d2JtY2lPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMU5qY21WbGJpVXlNRk5vYjNRbE1qQXlNREU1TFRBMUxUQXlKVEl3WVhRbE1qQXhNQzQwT1M0eU5TVXlNR0Z0TG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRPSIsImV4cCI6IjIwMTktMDUtMDlUMDI6Mzg6NDAuMDkxWiIsInB1ciI6ImJsb2Jfa2V5In19--f7772eb00a88bfdeff382c7f18157631b772d5ed", "filename"=>"Screen Shot 2019-05-02 at 10.49.25 am"}
+Completed 200 OK in 2ms (ActiveRecord: 0.0ms)
+
+
