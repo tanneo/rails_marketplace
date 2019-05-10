@@ -64,7 +64,7 @@
 }
 
 .jumbotron {
-  background-image: url('banner.jpg');
+  background-image: url(asset_path('banner.jpg'));
   h1, h2 {
     font-family: guardian-egyptt, georgia, serif;
     color: white;
