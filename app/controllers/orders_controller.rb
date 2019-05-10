@@ -20,6 +20,20 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @listing = Listing.find(params[:listing_id]) 
+    Stripe.api_key = ENV["STRIPE_API_KEY"] 
+
+    @stripe_checkout_session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      line_items: [{
+        name: @listing.name,
+        description: @listing.description,
+        amount: (@listing.price * 100).floor,
+        currency: 'aud',
+        quantity: 1,
+      }],
+      success_url: 'https://localhost:3000/success',
+      cancel_url: 'https://localhost:3000/cancel',
+    )
   end
 
 
@@ -37,20 +51,6 @@ class OrdersController < ApplicationController
     @order.buyer_id = current_user.id #Tells rails to fil out the buyer id column in the database with the current user id
     @order.seller_id = @seller.id #Tells rails to fill out seller id coluumn in the database
 
-    Stripe.api_key = ENV["STRIPE_API_KEY"] 
-
-    @stripe_checkout_session = Stripe::Checkout::Session.create(
-      payment_method_types: ['card'],
-      line_items: [{
-        name: @listing.name,
-        description: @listing.description,
-        amount: (@listing.price * 100).floor,
-        currency: 'aud',
-        quantity: 1,
-      }],
-      success_url: 'https://localhost:3000/success',
-      cancel_url: 'https://localhost:3000/cancel',
-    )
 
     respond_to do |format|
         if @order.save

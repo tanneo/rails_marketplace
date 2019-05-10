@@ -11,6 +11,7 @@
     </tr>
 
         <% @orders.each do |order| %>
+            <%if order.listing %>
             <tr>
                 <td class="center"> <%= image_tag order.listing.thumbnail %></td>
                 <td class="center"> <%= order.listing.name %></td>
@@ -18,5 +19,6 @@
                 <td class="center"> <%= order.buyer.name %></td>
                 <td class="center"><%= order.created_at.strftime("%-d, %B, %Y") %></td> <!-- Used Ruby time function and formatted to day, month year as in Australia-->
             </tr>
+        <% end %>
         <% end %>
     <table>
