@@ -1,6 +1,6 @@
 Rails.application.configure do
 
-    #SELF ADDED
+    #SELF ADDED - store uploaded files on local file system
     config.active_storage.service = :local 
     config.action_mailer.default_url_options = { host: 'localhost', port: 3000 } # for devise
   # Settings specified here will take precedence over those in config/application.rb.
