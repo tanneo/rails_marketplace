@@ -2,7 +2,7 @@ Rails.application.configure do
   #SELF ADDED TO SETUP DEVISE
    # Required for Devise. Remember to change localhost:3000 to actual application host
    config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  end #for devise
+  # end #for devise
 
   #SELF ADDED TO SETUP CLOUDINARY
   config.active_storage.service =:cloudinary
