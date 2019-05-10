@@ -18,7 +18,7 @@ gem 'mini_magick', '~> 4.9', '>= 4.9.3'
 gem 'image_magick', '~> 0.1.9'
 gem 'devise', '~> 4.6', '>= 4.6.2'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
-gem "figaro"
+# gem "figaro"
 gem "cloudinary","~> 1.11",require:false
 gem "activestorage-cloudinary-service","~> 0.2.3"
 gem'dotenv-rails',groups:[:development,:test]
