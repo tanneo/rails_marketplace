@@ -17,3 +17,6 @@ module Marketplace
     # the framework and any gems in your application.
   end
 end
+
+#SELF ADDED TO GET  HEROKU TO WORK
+config.assets.initialize_on_precompile = false
