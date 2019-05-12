@@ -4,6 +4,7 @@
     <h2> Shop Directly through Australian manufacturers </h2>
   </div>
   <div class="row">
+  <% if Listing.joins(:image_attachment) %>
     <% @listings.each do |listing| %>
 
       <div class="col-md-3">
@@ -19,6 +20,7 @@
           </div><!--thumbnail-->
         </div> <!--wrap-->
       </div><!--col-md-3-->
+    <% end %>
     <% end %>
   </div><!--row-->
 </div> <!--center-->
