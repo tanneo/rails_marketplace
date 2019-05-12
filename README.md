@@ -32,6 +32,8 @@ Functionality / features
 
 Screenshots
 
+- See See TeganOar_A2-1/docs
+
 
 Tech stack (e.g. html, css, deployment platform, etc)
 
@@ -285,6 +287,10 @@ However, if I worked within a team, I would have set up a Github Account and the
 
 
 20) Provide an overview and description of your Testing process.
+
+-  See TeganOar_A2-1/docs
+
+C Unfortunately timing meant custom tests could not be explored to Rspec-Rails. I did manual tests for testing purposes as unfortuntely timing didn't allow me to write automated tests or use Rspec. Testing was done iteratively after each feature sprint from the Trello board to ensure it was working. This was included in an excel spreadsheet in my documentation folder
 
 
 21) Discuss and analyse requirements related to information system security.
