@@ -31,8 +31,8 @@ class OrdersController < ApplicationController
         currency: 'aud',
         quantity: 1,
       }],
-      success_url: 'https://localhost:3000/success',
-      cancel_url: 'https://localhost:3000/cancel',
+      success_url: 'http://localhost:3000/success',
+      cancel_url: 'http://localhost:3000/cancel',
     )
   end
 
@@ -75,4 +75,8 @@ class OrdersController < ApplicationController
     def order_params
       params.require(:order).permit(:address, :city, :state)
     end
+  end
+
+  def done
+
   end
