@@ -27,6 +27,7 @@ class ListingsController < ApplicationController
   
     # GET /listings/1/edit
     def edit
+      
     end
   
     # POST /listings
@@ -35,7 +36,6 @@ class ListingsController < ApplicationController
       @listing = Listing.new(listing_params)
       @listing.user_id = current_user.id #Devise uses helpful keyword current_user which is getting current user and setting it to the id of the current listing
       
-  
       respond_to do |format|
         if @listing.save
           format.html { redirect_to @listing, notice: 'Listing was successfully created.' }

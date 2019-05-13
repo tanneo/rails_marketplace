@@ -1,5 +1,5 @@
 
-<%= form_for :listing, url: listings_path, method: :post do |f| %>
+<%= form_for @listing, url: listings_path, method: :post do |f| %>
 <% if @listing.errors.any? %>
     <div id="error_explanation" class="alert alert-danger alert-dismissable">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
